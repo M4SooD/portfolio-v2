@@ -1,1 +1,59 @@
 @import 'tailwindcss';
+
+@theme {
+  --font-jetbrains: 'JetBrains Mono', monospace;
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+}
+
+:root {
+
+  --background: 0 0% 100%;
+  --foreground: 24010% 3.9%;
+
+  --primary: 142 76% 36%
+  --primary-foreground: 355.7 100% 97.3%
+
+  --radius: 0.5rem
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: 20 14.3% 4.1%;
+    --foreground: 0 0% 95%;     
+    
+    --primary: 142 70% 50%;      
+    --primary-foreground: 144 100% 10%;
+    
+    --border: 240 3.7% 15.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+  }
+}
