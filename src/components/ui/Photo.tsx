@@ -5,13 +5,14 @@ import Image from 'next/image';
 
 const Photo = () => {
   return (
-    <div className="w-full h-full relative">
+    <div className="w-full h-full relative flex justify-center items-center">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{
           opacity: 1,
           transition: { delay: 2, duration: 0.4, ease: 'easeIn' },
         }}
+        className="relative w-75 h-75 xl:w-126.5 xl:h-126.5"
       >
         <motion.div
           initial={{ opacity: 0 }}
@@ -19,7 +20,7 @@ const Photo = () => {
             opacity: 1,
             transition: { delay: 2.4, duration: 0.4, ease: 'easeInOut' },
           }}
-          className="w-74.5 h-74.5 xl:w-124.5 xl:h-124.5 absolute top-0 left-0"
+          className="absolute inset-0"
         >
           <motion.svg
             className="w-75 xl:w-126.5 h-75 xl:h-126.5"
@@ -48,16 +49,17 @@ const Photo = () => {
             />
           </motion.svg>
         </motion.div>
+
         <motion.div
           initial={{ opacity: 0 }}
           animate={{
             opacity: 1,
             transition: { delay: 2.4, duration: 0.4, ease: 'easeInOut' },
           }}
-          className="w-74.5 h-74.5 xl:w-124.5 xl:h-124.5 mix-blend-lighten absolute ml-1 mt-1"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-74.5 h-74.5 xl:w-124.5 xl:h-124.5 mix-blend-lighten z-10"
         >
           <Image
-            src="/assets/photo.png"
+            src="/assets/Photo4.jpg"
             priority
             quality={100}
             fill
