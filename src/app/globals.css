@@ -78,3 +78,15 @@
     @apply text-[20px] xl:text-[24px] leading-[1.1] font-semibold;
   }
 }
+
+@layer utilities {
+  .text-outline {
+    -webkit-text-stroke: 1px white;
+    color: transparent;
+  }
+
+  .text-outline-hover {
+    -webkit-text-stroke: 1px var(--color-accent);
+    color: transparent;
+  }
+}
