@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/layout/Header';
+import StairTransition from '@/components/layout/StairTransition';
+import PageTransition from '@/components/layout/PageTransition';
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
@@ -21,9 +23,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${jetbrainsMono.variable} font-primary  antialiased`}>
+      <body className={`${jetbrainsMono.variable} antialiased`}>
         <Header />
-        {children}
+
+        <StairTransition />
+
+        <PageTransition>{children}</PageTransition>
       </body>
     </html>
   );
