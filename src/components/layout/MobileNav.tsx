@@ -10,7 +10,7 @@ const links = [
   { name: 'home', path: '/' },
   { name: 'services', path: '/services' },
   { name: 'resume', path: '/resume' },
-  { name: 'work', path: '/work' },
+  // { name: 'work', path: '/work' },
   { name: 'contact', path: '/contact' },
 ];
 
@@ -20,7 +20,7 @@ export const MobileNav = () => {
 
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
-      <SheetTrigger className="flex justfiy-center items-center">
+      <SheetTrigger className="flex justfiy-center items-center cursor-pointer">
         <CiMenuFries className="text-[32px] text-primary" />
       </SheetTrigger>
 
