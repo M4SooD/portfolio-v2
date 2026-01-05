@@ -20,7 +20,7 @@ import {
   SiGit,
 } from 'react-icons/si';
 
-export interface InfoItem {
+export interface AboutInfoItem {
   fieldName: string;
   fieldValue: string;
 }
@@ -28,7 +28,7 @@ export interface InfoItem {
 export interface About {
   title: string;
   description: string;
-  info: InfoItem[];
+  info: AboutInfoItem[];
 }
 
 export interface ExperienceItem {

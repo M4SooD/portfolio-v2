@@ -1,4 +1,4 @@
-import { experience } from '@/constants/resumeData';
+import { experience } from '@/constants/resume';
 import { ScrollArea } from '@/components/ui/scroll-area';
 
 const Experience = () => {

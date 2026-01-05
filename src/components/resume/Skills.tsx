@@ -1,4 +1,4 @@
-import { skills } from '@/constants/resumeData';
+import { skills } from '@/constants/resume';
 import {
   Tooltip,
   TooltipContent,

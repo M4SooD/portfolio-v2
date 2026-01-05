@@ -1,13 +1,13 @@
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 import { ReactNode } from 'react';
 
-export interface InfoItem {
+export interface ContactInfoItem {
   icon: ReactNode;
   title: string;
   description: string;
 }
 
-export const info: InfoItem[] = [
+export const info: ContactInfoItem[] = [
   {
     icon: <FaPhoneAlt />,
     title: 'Phone',

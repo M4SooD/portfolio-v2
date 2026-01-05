@@ -1,4 +1,4 @@
-import { about } from '@/constants/resumeData';
+import { about } from '@/constants/resume';
 
 const About = () => {
   return (

@@ -2,12 +2,10 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Swiper as SwiperType } from 'swiper';
-import 'swiper/css';
-
 import { BsArrowUpRight, BsGithub } from 'react-icons/bs';
+import { Swiper as SwiperType } from 'swiper';
+import Link from 'next/link';
+
 import {
   Tooltip,
   TooltipContent,
@@ -15,11 +13,8 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip';
 
-import Link from 'next/link';
-import Image from 'next/image';
-
-import { projects } from '@/constants/workData';
-import WorkSliderBtns from '@/components/ui/WorkSliderButton';
+import { projects } from '@/constants';
+import WorkSlider from '@/components/work/WorkSlider';
 
 const Work = () => {
   const [project, setProject] = useState(projects[0]);
@@ -45,26 +40,19 @@ const Work = () => {
               <div className="text-8xl leading-none font-extrabold text-transparent text-outline">
                 {project.num}
               </div>
-
               <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
                 {project.title} project
               </h2>
-
               <p className="text-white/60">{project.description}</p>
-
               <ul className="flex gap-4">
-                {project.stack.map((item, index) => {
-                  return (
-                    <li key={index} className="text-xl text-accent">
-                      {item.name}
-                      {index !== project.stack.length - 1 && ','}
-                    </li>
-                  );
-                })}
+                {project.stack.map((item, index) => (
+                  <li key={index} className="text-xl text-accent">
+                    {item.name}
+                    {index !== project.stack.length - 1 && ','}
+                  </li>
+                ))}
               </ul>
-
               <div className="border border-white/20"></div>
-
               <div className="flex items-center gap-4">
                 <Link href={project.live} target="_blank">
                   <TooltipProvider delayDuration={100}>
@@ -78,7 +66,6 @@ const Work = () => {
                     </Tooltip>
                   </TooltipProvider>
                 </Link>
-
                 <Link href={project.github} target="_blank">
                   <TooltipProvider delayDuration={100}>
                     <Tooltip>
@@ -96,36 +83,10 @@ const Work = () => {
           </div>
 
           <div className="w-full xl:w-[50%]">
-            <Swiper
-              spaceBetween={30}
-              slidesPerView={1}
-              className="xl:h-130 mb-12"
-              onSlideChange={handleSlideChange}
-            >
-              {projects.map((item, index) => {
-                return (
-                  <SwiperSlide key={index} className="w-full">
-                    <div className="h-115 relative group flex justify-center items-center bg-[#27272c] rounded-xl overflow-hidden">
-                      <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-10"></div>
-
-                      <div className="relative w-full h-full">
-                        <Image
-                          src={item.image}
-                          fill
-                          className="object-cover"
-                          alt={item.title}
-                        />
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                );
-              })}
-
-              <WorkSliderBtns
-                containerStyles="flex gap-2 absolute right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none"
-                btnStyles="bg-accent hover:bg-accent-hover text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all rounded-md"
-              />
-            </Swiper>
+            <WorkSlider
+              projects={projects}
+              handleSlideChange={handleSlideChange}
+            />
           </div>
         </div>
       </div>
