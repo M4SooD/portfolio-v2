@@ -3,7 +3,6 @@
 @plugin "tailwindcss-animate";
 
 @theme {
-  /* 👇 اینجا همون رنگ‌های دارک رو وصل کردیم */
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
 
@@ -56,7 +55,6 @@
   }
 }
 
-/* 👇 فقط همین یک حالت رو داریم (همیشه دارک) */
 :root {
   --background: #1c1c22; /* مشکی */
   --foreground: #ffffff; /* سفید */

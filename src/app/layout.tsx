@@ -12,8 +12,43 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Masood Moosavi | Portfolio',
-  description: 'Professional Portfolio of Masood Moosavi',
+  title: {
+    default: 'Masood Moosavi | Creative Front-End Developer',
+    template: '%s | Masood Moosavi',
+  },
+  description:
+    'Portfolio of Masood Moosavi, a Senior Front-End Developer specializing in Next.js, React, Tailwind CSS, and modern web animations.',
+
+  keywords: [
+    'Frontend Developer',
+    'React Developer',
+    'Next.js Portfolio',
+    'Masood Moosavi',
+    'Web Developer Iran',
+    'Tailwind CSS',
+    'Framer Motion',
+  ],
+
+  authors: [{ name: 'Masood Moosavi' }],
+  creator: 'Masood Moosavi',
+
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://masood-portfolio.vercel.app',
+    title: 'Masood Moosavi | Creative Front-End Developer',
+    description:
+      'Check out my portfolio featuring modern web technologies and creative designs.',
+    siteName: 'Masood Moosavi Portfolio',
+    // images: [
+    //   {
+    //     url: "/assets/og-image.png", // (اختیاری) یه عکس از سایتت بگیر بذار اینجا که لینک میدی عکسش بیاد
+    //     width: 1200,
+    //     height: 630,
+    //     alt: "Masood Moosavi Portfolio",
+    //   },
+    // ],
+  },
 };
 
 export default function RootLayout({
