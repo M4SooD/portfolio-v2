@@ -10,19 +10,20 @@ interface StatItem {
 
 const stats: StatItem[] = [
   {
-    num: 5,
+    num: 4,
     text: 'Years of experience',
+    suffix: '+',
   },
   {
-    num: 20,
+    num: 19,
     text: 'Projects completed',
   },
   {
-    num: 8,
+    num: 15,
     text: 'Technologies mastered',
   },
   {
-    num: 500,
+    num: 2000,
     text: 'Code commits',
     suffix: '+',
   },

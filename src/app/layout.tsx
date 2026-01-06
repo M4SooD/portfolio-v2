@@ -22,12 +22,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${jetbrainsMono.variable} antialiased`}>
         <Header />
-
         <StairTransition />
-
         <PageTransition>{children}</PageTransition>
       </body>
     </html>

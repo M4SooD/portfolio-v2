@@ -17,7 +17,12 @@ export const Header = () => {
         <div className="hidden xl:flex items-center gap-8">
           <Nav />
           <Link href="/contact">
-            <Button className="cursor-pointer">Hire me</Button>
+            <Button
+              variant="outline"
+              className="border-accent text-accent hover:bg-accent hover:text-[#1c1c22] transition-all duration-500 cursor-pointer"
+            >
+              Hire me
+            </Button>
           </Link>
         </div>
 

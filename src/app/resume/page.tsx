@@ -23,15 +23,18 @@ const Resume = () => {
           defaultValue="experience"
           className="flex flex-col xl:flex-row gap-15"
         >
-          {/* لیست تب‌ها */}
           <TabsList className="flex flex-col w-full max-w-95 mx-auto xl:mx-0 gap-6">
-            <TabsTrigger value="experience">Experience</TabsTrigger>
+            <TabsTrigger
+              value="experience"
+              className="inline-flex items-center w-full bg-[#27272c] justify-center whitespace-nowrap text-white rounded-lg p-3 text-base font-medium ring-offset-white transition-all disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-accent data-[state=active]:text-[#1c1c22] data-[state=active]:font-bold data-[state=active]:shadow-sm"
+            >
+              Experience
+            </TabsTrigger>
             <TabsTrigger value="education">Education</TabsTrigger>
             <TabsTrigger value="skills">Skills</TabsTrigger>
             <TabsTrigger value="about">About me</TabsTrigger>
           </TabsList>
 
-          {/* محتوای تب‌ها */}
           <div className="min-h-[70vh] w-full">
             <TabsContent value="experience" className="w-full">
               <Experience />

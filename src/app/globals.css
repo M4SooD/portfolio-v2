@@ -2,17 +2,38 @@
 
 @plugin "tailwindcss-animate";
 
-@custom-variant dark (&:is(.dark *));
-
 @theme {
-  --color-primary: #00ff99;
-  --color-primary-hover: #00e187;
-  --color-accent: #00ff99;
-  --color-accent-hover: #00e187;
+  /* 👇 اینجا همون رنگ‌های دارک رو وصل کردیم */
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
 
-  --color-dark: #1c1c22;
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
 
   --font-primary: var(--font-jetbrainsMono);
+  --radius: 0.5rem;
 
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
@@ -33,62 +54,12 @@
       height: 0;
     }
   }
-
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-
-  --color-primary-foreground: var(--primary-foreground);
-
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-
-  --color-accent-foreground: var(--accent-foreground);
-
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-
-  --radius: 0.5rem;
 }
 
+/* 👇 فقط همین یک حالت رو داریم (همیشه دارک) */
 :root {
-  --background: #ffffff;
-  --foreground: #1c1c22;
-  --card: #ffffff;
-  --card-foreground: #1c1c22;
-  --popover: #ffffff;
-  --popover-foreground: #1c1c22;
-  --primary: #1c1c22;
-  --primary-foreground: #00ff99;
-  --secondary: #f4f4f5;
-  --secondary-foreground: #1c1c22;
-  --muted: #f4f4f5;
-  --muted-foreground: #71717a;
-  --accent: #00ff99;
-  --accent-foreground: #1c1c22;
-  --destructive: #ef4444;
-  --destructive-foreground: #fafafa;
-  --border: #e4e4e7;
-  --input: #e4e4e7;
-  --ring: #1c1c22;
-  --radius: 0.5rem;
-}
-
-.dark {
-  --background: #1c1c22;
-  --foreground: #ffffff;
+  --background: #1c1c22; /* مشکی */
+  --foreground: #ffffff; /* سفید */
 
   --card: #27272c;
   --card-foreground: #ffffff;
@@ -96,7 +67,7 @@
   --popover: #1c1c22;
   --popover-foreground: #ffffff;
 
-  --primary: #00ff99;
+  --primary: #00ff99; /* سبز */
   --primary-foreground: #1c1c22;
 
   --secondary: #27272c;
@@ -114,6 +85,8 @@
   --border: #27272c;
   --input: #27272c;
   --ring: #00ff99;
+
+  --radius: 0.5rem;
 }
 
 @layer base {
@@ -121,8 +94,9 @@
     @apply bg-background text-foreground font-primary leading-relaxed antialiased;
   }
 
+  /* Container Styles */
   .container {
-    @apply mx-auto px-3.75 w-full;
+    @apply mx-auto px-4 w-full;
   }
   @media (min-width: 640px) {
     .container {
@@ -158,10 +132,9 @@
 
 @layer utilities {
   .text-outline {
-    -webkit-text-stroke: 1px white;
+    -webkit-text-stroke: 1px white; /* همیشه سفید باشه */
     color: transparent;
   }
-
   .text-outline-hover {
     -webkit-text-stroke: 1px var(--color-accent);
     color: transparent;
