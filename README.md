@@ -1,36 +1,108 @@
-# Next.js Enterprise Boilerplate 🚀
+# 🚀 Masood Moosavi | Creative Developer Portfolio
 
-A scalable, production-ready starter kit designed for high-performance applications, featuring **Next.js 16 (App Router)**, **TypeScript**, and a modular architecture.
+![Next.js](https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.9.3-blue?style=for-the-badge&logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38B2AC?style=for-the-badge&logo=tailwind-css)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-Latest-purple?style=for-the-badge&logo=framer)
 
-## 🏗 Architecture & Design Decisions
+A high-performance, visually stunning, and interactive developer portfolio. Built with the latest web technologies to showcase projects, technical skills, and professional experience. Designed with a **Dark Mode Only** aesthetic, focusing on clean code, smooth animations, and best practices.
 
-This project follows a strict separation of concerns to ensure maintainability and scalability for large teams.
+![Project Preview](./public/assets/preview.png)
 
-### 📂 Folder Structure
+## ✨ Key Features
 
-- **`src/app`**: Contains strictly routing logic (`page.tsx`, `layout.tsx`). No complex business logic here.
-- **`src/components`**: Organized by Atomic Design principles:
-  - `ui/`: Reusable, dumb components (Buttons, Inputs) with zero business logic.
-  - `modules/`: Feature-specific components (e.g., `LoginForm`, `DashboardChart`).
-  - `layouts/`: Global layout components (Header, Sidebar).
-- **`src/services`**: Centralized API calls. Direct API fetching inside components is forbidden to ensure ease of testing.
-- **`src/lib`**: Configurations for third-party libraries (e.g., Axios instance with Interceptors).
-- **`src/store`**: Global state management configuration.
+- **⚡ Next.js 16 (App Router):** Utilizing Server Components for lightning-fast performance and SEO.
+- **🎨 Tailwind CSS v4:** Using the latest engine for zero-runtime styling and custom themes.
+- **🎬 Framer Motion:** Advanced page transitions (Stair Effect) and micro-interactions.
+- **📱 Fully Responsive:** Optimized layout for Mobile, Tablet, and Desktop devices.
+- **🧩 Component Architecture:** Modular structure using Shadcn UI and atomic design principles.
+- **🌑 Cyberpunk/Dark Aesthetic:** A professional dark theme with neon green accents.
+- **🔍 SEO Optimized:** Integrated Metadata and Open Graph support for better visibility.
+- **✉️ Functional Contact Form:** Ready for API integration.
 
-## ⚡ Performance Optimizations
+## 🛠️ Tech Stack
 
-- **Strict Typing**: No `any` types allowed. All API responses are typed in `src/types`.
-- **Axios Interceptors**: Centralized error handling (401/403) and token injection in `src/lib/axios.ts`.
-- **Modular Imports**: Code splitting enabled by default via Next.js App Router.
+- **Framework:** [Next.js 16](https://nextjs.org/)
+- **Language:** [TypeScript](https://www.typescriptlang.org/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **UI Library:** [Shadcn UI](https://ui.shadcn.com/)
+- **Animations:** [Framer Motion](https://www.framer.com/motion/)
+- **Icons:** [Lucide React](https://lucide.dev/) & [React Icons](https://react-icons.github.io/react-icons/)
+- **Font:** [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono)
 
-## 🛠 Tech Stack
+## 🚀 Getting Started
 
-- **Framework**: Next.js 16
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **Linting**: ESLint + Prettier (Strict config)
-- **HTTP Client**: Axios (configured for Enterprise needs)
+Follow these steps to run the project locally on your machine:
+
+### 1. Clone the repository
+
+    git clone [https://github.com/YOUR_USERNAME/portfolio-v2.git](https://github.com/YOUR_USERNAME/portfolio-v2.git)
+    cd portfolio-v2
+
+### 2. Install dependencies
+
+    npm install
+    # or if you use yarn/pnpm
+    yarn install
+    pnpm install
+
+### 3. Run the development server
+
+    npm run dev
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## 📂 Project Structure
+
+This project follows a clean, feature-based architecture with Tailwind v4 (No config file):
+
+    ├── public/              # Static assets (images, resume.pdf)
+    ├── src/
+    │   ├── app/             # Next.js App Router pages (Home, Resume, Work, Contact)
+    │   ├── components/      # React Components
+    │   │   ├── home/        # Homepage specific components
+    │   │   ├── layout/      # Layout components (Header, Nav, Transitions)
+    │   │   └── ui/          # Reusable UI elements (Shadcn)
+    │   ├── constants/       # Static data (Nav links, Socials)
+    │   ├── lib/             # Utility functions
+    │   └── types/           # TypeScript definitions
+    ├── postcss.config.mjs   # PostCSS configuration
+    ├── next.config.ts       # Next.js configuration
+    └── ...
+
+## 🎨 Customization Guide
+
+### Personal Information
+
+To update your name, title, and bio, edit the following files:
+
+- `src/components/home/Hero.tsx`
+- `src/components/home/Stats.tsx`
+
+### Resume / CV
+
+Replace the existing PDF file located at:
+
+- `public/assets/resume.pdf`
+
+### Color Scheme
+
+The project uses CSS variables for theming. You can adjust the primary and accent colors in:
+
+- `src/app/globals.css` (Look for `--primary` and `--accent`)
+
+## 📦 Deployment
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme).
+
+1. Push your code to a GitHub repository.
+2. Import the project into Vercel.
+3. Vercel will automatically detect Next.js and deploy.
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-_Architected by [Masood Moosavi]_
+**Developed by [Masood Moosavi](https://github.com/M4SooD)**
