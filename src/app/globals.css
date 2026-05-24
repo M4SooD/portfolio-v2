@@ -90,6 +90,7 @@
 @layer base {
   body {
     @apply bg-background text-foreground font-primary leading-relaxed antialiased;
+    font-family: 'Courier New', Courier, monospace;
   }
 
   /* Container Styles */

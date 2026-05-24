@@ -21,7 +21,10 @@ export const MobileNav = () => {
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger className="flex justfiy-center items-center cursor-pointer">
-        <CiMenuFries className="text-[32px] text-primary" />
+        <CiMenuFries
+          aria-label="Open mobile navigation"
+          className="text-[32px] text-primary"
+        />
       </SheetTrigger>
 
       <SheetContent className="flex flex-col border-none bg-background">

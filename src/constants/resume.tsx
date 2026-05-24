@@ -35,6 +35,7 @@ export interface ExperienceItem {
   company: string;
   position: string;
   duration: string;
+  description?: string;
   badge?: string;
 }
 
@@ -116,24 +117,39 @@ export const experience: Experience = {
     'A progressive track record of delivering enterprise-level applications, focusing on performance optimization, maintainable codebases, and seamless UI/UX implementation.',
   items: [
     {
+      company: 'RBTex',
+      position: 'Senior Front-End Developer',
+      duration: 'Dec 2024 – Present',
+      description:
+        'Architected high-traffic crypto exchange dashboards using React, Next.js (SSR), and TypeScript. Reduced initial load times by ~30% and established comprehensive technical documentation.',
+    },
+    {
       company: 'Pendar Ideas',
       position: 'Senior Front-End Developer',
-      duration: '2024 - Present',
+      duration: 'May 2024 – Dec 2024',
+      description:
+        'Spearheaded refactoring of legacy code into a modern component-based architecture and shipped the "Good Vibes" feature, contributing to a ~10% increase in Daily Active Users.',
     },
     {
       company: 'Bitbine',
       position: 'Front-End Developer',
-      duration: '2023 - 2024',
+      duration: 'May 2023 – Aug 2024',
+      description:
+        'Integrated complex RESTful APIs with robust error handling and established an automated testing culture (Cypress), reducing production bugs by ~30%.',
     },
     {
       company: 'Immorit',
-      position: 'Front-End Developer',
-      duration: '2022 - 2023',
+      position: 'Junior Front-End Developer',
+      duration: 'Apr 2022 – Mar 2023',
+      description:
+        'Translated UI/UX designs into responsive, accessible code and collaborated with the design team to standardize the UI component system across multiple projects.',
     },
     {
       company: 'Karademy',
       position: 'MERN Stack Intern',
       duration: '2021',
+      description:
+        'Completed an intensive MERN stack internship, building full-stack applications with MongoDB, Express, React, and Node.js.',
     },
   ],
 };

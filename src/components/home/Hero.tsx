@@ -28,6 +28,7 @@ const Hero = () => {
                 download="Masood_Moosavi_CV.pdf"
               >
                 <Button
+                  aria-label=""
                   variant="outline"
                   size="lg"
                   className="uppercase flex items-center gap-2 border-accent text-accent hover:bg-accent hover:text-[#1c1c22] transition-all duration-500 cursor-pointer"

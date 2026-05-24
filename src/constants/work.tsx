@@ -47,4 +47,20 @@ export const projects: Project[] = [
     live: 'https://omniifoods.netlify.app/',
     github: 'https://github.com/M4SooD/Omnifood',
   },
+  {
+    num: '04',
+    title: 'Uniswap Interface Clone',
+    description:
+      'A fully functional Web3 swap interface with wallet connection, live price feeds, and transaction handling, built with React, TypeScript, ethers.js, and Next.js.',
+    stack: [
+      { name: 'Next.js 16' },
+      { name: 'TypeScript' },
+      { name: 'ethers.js' },
+      { name: 'Tailwind CSS' },
+    ],
+    image: '/assets/work/uniswap.png', // We'll add a placeholder image later, for now it can be missing or a generic dev image
+    github: 'https://github.com/M4SooD/uniswap-interface',
+    category: 'frontend',
+    live: '',
+  },
 ];
