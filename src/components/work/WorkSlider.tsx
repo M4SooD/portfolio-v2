@@ -18,7 +18,7 @@ const WorkSlider = ({ projects, handleSlideChange }: WorkSliderProps) => {
     <Swiper
       spaceBetween={30}
       slidesPerView={1}
-      className="xl:h-130 mb-12"
+      className="min-h-115 xl:h-130 mb-12"
       onSlideChange={handleSlideChange}
     >
       {projects.map((project, index) => {
