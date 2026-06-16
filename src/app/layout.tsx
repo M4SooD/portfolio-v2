@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     siteName: 'Masood Moosavi Portfolio',
     images: [
       {
-        url: '/assets/og-image.png',
+        url: '/assets/preview.png',
         width: 1200,
         height: 630,
         alt: 'Masood Moosavi - Senior Front-End Engineer',

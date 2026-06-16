@@ -14,6 +14,7 @@ const Photo = () => {
         }}
         className="relative w-75 h-75 xl:w-126.5 xl:h-126.5"
       >
+        {/* Animated SVG Ring */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{
@@ -50,22 +51,23 @@ const Photo = () => {
           </motion.svg>
         </motion.div>
 
+        {/* The Image Container */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{
             opacity: 1,
             transition: { delay: 0.2, duration: 0.4, ease: 'easeInOut' },
           }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-74.5 h-74.5 xl:w-124.5 xl:h-124.5 z-10"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-74.5 h-74.5 xl:w-124.5 xl:h-124.5 z-10 rounded-full overflow-hidden"
         >
           <Image
-            src="/assets/Photo6.png"
+            src="/assets/photo1.png"
             priority
             quality={100}
             fill
             alt="Masood Moosavi Profile"
-            className="object-contain rounded-full"
-            sizes="(max-width: 1200px) 298px, 498px"
+            className="object-cover"
+            sizes="100vw"
           />
         </motion.div>
       </motion.div>
