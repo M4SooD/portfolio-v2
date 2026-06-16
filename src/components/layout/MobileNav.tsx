@@ -20,24 +20,24 @@ export const MobileNav = () => {
 
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
-      <SheetTrigger className="flex justfiy-center items-center cursor-pointer">
+      <SheetTrigger className="flex justify-center items-center cursor-pointer">
         <CiMenuFries
           aria-label="Open mobile navigation"
           className="text-[32px] text-primary"
         />
       </SheetTrigger>
 
-      <SheetContent className="flex flex-col border-none bg-background">
+      <SheetContent className="flex flex-col border-none bg-background overflow-y-auto">
         <SheetTitle className="hidden">Mobile Navigation Menu</SheetTitle>
-        <div className="mt-32 mb-40 text-center text-2xl">
+        <div className="mt-32 mb-40 text-center text-2xl shrink-0">
           <Link href="/">
-            <h1 className="text-4xl font-semibold">
+            <div className="text-4xl font-semibold">
               M4S <span className="text-primary">.</span>
-            </h1>
+            </div>
           </Link>
         </div>
 
-        <nav className="flex flex-col justify-center items-center gap-8">
+        <nav className="flex flex-col justify-center items-center gap-8 pb-10">
           {links.map((link, index) => {
             return (
               <Link

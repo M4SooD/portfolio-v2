@@ -1,30 +1,34 @@
 import type { Metadata } from 'next';
-// import { JetBrains_Mono } from 'next/font/google';
+import { JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/layout/Header';
 import StairTransition from '@/components/layout/StairTransition';
 import PageTransition from '@/components/layout/PageTransition';
 
-// const jetbrainsMono = JetBrains_Mono({
-//   subsets: ['latin'],
-//   weight: ['100', '200', '300', '400', '500', '600', '700', '800'],
-//   variable: '--font-jetbrainsMono',
-// });
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800'],
+  variable: '--font-jetbrainsMono',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://m4sood-dev.vercel.app/'),
+
   title: {
-    default: 'Masood Moosavi | Creative Front-End Developer',
+    default: 'Masood Moosavi | Senior Front-End Developer',
     template: '%s | Masood Moosavi',
   },
   description:
-    'Portfolio of Masood Moosavi, a Senior Front-End Developer specializing in Next.js, React, Tailwind CSS, and modern web animations.',
+    'Portfolio of Masood Moosavi, a Senior Front-End Engineer specializing in Next.js, React, TypeScript, and high-performance UI architecture.',
 
   keywords: [
-    'Frontend Developer',
-    'React Developer',
+    'Senior Front-End Engineer',
+    'React Architecture',
     'Next.js Portfolio',
+    'TypeScript Developer',
+    'Web Performance Optimization',
     'Masood Moosavi',
-    'Web Developer Iran',
     'Tailwind CSS',
     'Framer Motion',
   ],
@@ -35,19 +39,19 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://masood-portfolio.vercel.app',
-    title: 'Masood Moosavi | Creative Front-End Developer',
+    url: 'https://m4sood-dev.vercel.app',
+    title: 'Masood Moosavi | Senior Front-End Developer',
     description:
-      'Check out my portfolio featuring modern web technologies and creative designs.',
+      'Explore my portfolio featuring highly performant, scalable user interfaces built with modern web technologies.',
     siteName: 'Masood Moosavi Portfolio',
-    // images: [
-    //   {
-    //     url: "/assets/og-image.png", // (اختیاری) یه عکس از سایتت بگیر بذار اینجا که لینک میدی عکسش بیاد
-    //     width: 1200,
-    //     height: 630,
-    //     alt: "Masood Moosavi Portfolio",
-    //   },
-    // ],
+    images: [
+      {
+        url: '/assets/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Masood Moosavi - Senior Front-End Engineer',
+      },
+    ],
   },
 };
 
@@ -58,7 +62,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`antialiased`}>
+      <body className={`${jetbrainsMono.variable} antialiased`}>
         <Header />
         <StairTransition />
         <PageTransition>

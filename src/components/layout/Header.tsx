@@ -8,9 +8,9 @@ export const Header = () => {
     <header className="py-8 xl:py-12 text-foreground">
       <div className="container mx-auto flex justify-between items-center">
         <Link href="/">
-          <h1 className="text-4xl font-semibold">
+          <div className="text-4xl font-semibold">
             M4S <span className="text-primary">.</span>
-          </h1>
+          </div>
         </Link>
 
         {/* Desktop Nav */}
@@ -18,6 +18,7 @@ export const Header = () => {
           <Nav />
           <Link href="/contact">
             <Button
+              asChild
               variant="outline"
               className="border-accent text-accent hover:bg-accent hover:text-[#1c1c22] transition-all duration-500 cursor-pointer"
             >
