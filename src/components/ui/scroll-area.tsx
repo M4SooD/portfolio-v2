@@ -43,13 +43,13 @@ function ScrollBar({
           'h-full w-2.5 border-l border-l-transparent',
         orientation === 'horizontal' &&
           'h-2.5 flex-col border-t border-t-transparent',
-        className
+        className,
       )}
       {...props}
     >
       <ScrollAreaPrimitive.ScrollAreaThumb
         data-slot="scroll-area-thumb"
-        className="bg-border relative flex-1 rounded-full"
+        className="bg-accent relative flex-1 rounded-full"
       />
     </ScrollAreaPrimitive.ScrollAreaScrollbar>
   );

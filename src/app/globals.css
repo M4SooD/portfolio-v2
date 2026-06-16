@@ -121,3 +121,7 @@
   -webkit-text-stroke: 1px var(--color-accent);
   color: transparent;
 }
+
+@utility container {
+  @apply w-full mx-auto px-4 md:px-8 xl:px-0 max-w-300;
+}

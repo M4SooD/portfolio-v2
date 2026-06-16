@@ -2,7 +2,7 @@
 
 import { BsArrowDownRight } from 'react-icons/bs';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 
 interface Service {
   num: string;
@@ -16,14 +16,14 @@ const services: Service[] = [
     num: '01',
     title: 'Front-End Development',
     description:
-      'Building scalable and performant client-side applications using React.js, Next.js, and Angular. I ensure pixel-perfect implementation and responsive design across all devices.',
+      'Building scalable and performant client-side applications using React.js, Next.js, and Angular. Ensuring pixel-perfect implementation and responsive design across all devices.',
     href: '',
   },
   {
     num: '02',
     title: 'SPA & State Management',
     description:
-      'Developing complex Single Page Applications (SPAs) with robust state management solutions like Redux-Toolkit and NGRX. Focusing on data flow efficiency and application stability.',
+      'Developing complex Single Page Applications (SPAs) with robust state management solutions like Redux-Toolkit and NGRX. Focusing on predictable data flow and application stability.',
     href: '',
   },
   {
@@ -37,27 +37,42 @@ const services: Service[] = [
     num: '04',
     title: 'Component Systems',
     description:
-      'Creating reusable, accessible, and testable UI component libraries. Proficient in integrating frameworks like Material UI (MUI) and Tailwind CSS for consistent design systems.',
+      'Creating reusable, accessible, and testable UI component libraries. Integrating frameworks like Material UI (MUI) and Tailwind CSS to build consistent, scalable design <systems className=""></systems>',
     href: '',
   },
 ];
+
+const gridVariants: Variants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      delayChildren: 2.2,
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
+};
 
 const Services = () => {
   return (
     <section className="min-h-[80vh] flex flex-col justify-center py-12 xl:py-0">
       <div className="container mx-auto">
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{
-            opacity: 1,
-            transition: { delay: 2.4, duration: 0.4, ease: 'easeIn' },
-          }}
+          variants={gridVariants}
+          initial="hidden"
+          animate="show"
           className="grid grid-cols-1 md:grid-cols-2 gap-15"
         >
-          {services.map((service, index) => {
+          {services.map((service) => {
             return (
-              <div
-                key={index}
+              <motion.div
+                variants={itemVariants}
+                key={service.num}
                 className="flex-1 flex flex-col justify-center gap-6 group"
               >
                 <div className="w-full flex justify-between items-center">
@@ -68,7 +83,7 @@ const Services = () => {
                     href={service.href}
                     className="w-17.5 h-17.5 rounded-full bg-white group flex justify-center items-center transition-all duration-500 hover:bg-accent hover:-rotate-45"
                   >
-                    <BsArrowDownRight className="text-dark  text-3xl transition-all duration-500" />
+                    <BsArrowDownRight className="text-[#1c1c22] text-3xl transition-all duration-500" />
                   </Link>
                 </div>
                 <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500">
@@ -76,7 +91,7 @@ const Services = () => {
                 </h2>
                 <p className="text-white/60">{service.description}</p>
                 <div className="border-b border-white/20 w-full"></div>
-              </div>
+              </motion.div>
             );
           })}
         </motion.div>
