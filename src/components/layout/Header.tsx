@@ -1,34 +1,37 @@
 import Link from 'next/link';
-import { Button } from '../ui/Button';
+import { ArrowUpRight } from 'lucide-react';
 import { Nav } from './Nav';
 import { MobileNav } from './MobileNav';
 
 export const Header = () => {
   return (
-    <header className="py-8 xl:py-12 text-foreground">
-      <div className="container mx-auto flex justify-between items-center">
-        <Link href="/">
-          <div className="text-4xl font-semibold">
-            M4S <span className="text-primary">.</span>
-          </div>
+    <header className="sticky top-0 z-40 border-b border-white/6 bg-background/80 backdrop-blur-xl">
+      <div className="container flex h-20 items-center justify-between">
+        <Link
+          href="/"
+          aria-label="Masoud Mousavi — homepage"
+          className="group flex items-center gap-3"
+        >
+          <span className="grid size-10 place-items-center rounded-xl border border-primary/25 bg-primary/10 text-sm font-bold text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+            MM
+          </span>
+          <span className="hidden text-sm font-semibold tracking-tight sm:block">
+            Masoud Mousavi
+          </span>
         </Link>
 
-        {/* Desktop Nav */}
-        <div className="hidden xl:flex items-center gap-8">
+        <div className="hidden items-center gap-7 lg:flex">
           <Nav />
-          <Link href="/contact">
-            <Button
-              asChild
-              variant="outline"
-              className="border-accent text-accent hover:bg-accent hover:text-[#1c1c22] transition-all duration-500 cursor-pointer"
-            >
-              Hire me
-            </Button>
+          <Link
+            href="/contact"
+            className="inline-flex h-11 items-center gap-2 rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground transition hover:-translate-y-0.5 hover:bg-primary/90"
+          >
+            Let&apos;s talk
+            <ArrowUpRight aria-hidden="true" className="size-4" />
           </Link>
         </div>
 
-        {/* Mobile Nav Trigger */}
-        <div className="xl:hidden">
+        <div className="lg:hidden">
           <MobileNav />
         </div>
       </div>

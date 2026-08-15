@@ -1,11 +1,6 @@
-'use client';
-
-import { useCountUp } from '@/hooks/useCountUp';
-
 export interface StatItem {
-  num: number;
-  text: string;
-  suffix?: string;
+  value: string;
+  label: string;
 }
 
 interface StatCardProps {
@@ -13,22 +8,12 @@ interface StatCardProps {
 }
 
 export const StatCard = ({ item }: StatCardProps) => {
-  const count = useCountUp(item.num, 5000, 2000);
-
   return (
-    <div className="flex-1 flex gap-4 items-center justify-center xl:justify-start">
-      <div className="text-4xl xl:text-6xl font-extrabold flex">
-        <span>{count}</span>
-        {item.suffix && <span>{item.suffix}</span>}
-      </div>
-
-      <p
-        className={`${
-          item.text.length < 15 ? 'max-w-25' : 'max-w-37.5'
-        } leading-snug text-white/80`}
-      >
-        {item.text}
+    <div className="surface rounded-2xl p-5 transition hover:-translate-y-1 hover:border-primary/20">
+      <p className="text-3xl font-semibold tracking-[-0.05em] text-primary sm:text-4xl">
+        {item.value}
       </p>
+      <p className="mt-3 text-sm leading-6 text-muted-foreground">{item.label}</p>
     </div>
   );
 };

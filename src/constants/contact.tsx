@@ -16,7 +16,7 @@ export const info: ContactInfoItem[] = [
   {
     icon: <FaEnvelope />,
     title: 'Email',
-    description: 'masood.m.dev@gmail.com',
+    description: 'masoud.mousavi.dev@gmail.com',
   },
   {
     icon: <FaMapMarkerAlt />,

@@ -1,103 +1,112 @@
-'use client';
-
-import { BsArrowDownRight } from 'react-icons/bs';
+import type { Metadata } from 'next';
 import Link from 'next/link';
-import { motion, Variants } from 'framer-motion';
+import { ArrowRight, Blocks, Gauge, LayoutTemplate, Workflow } from 'lucide-react';
 
-interface Service {
-  num: string;
-  title: string;
-  description: string;
-  href: string;
-}
+export const metadata: Metadata = {
+  title: 'Expertise',
+  description:
+    'Front-end engineering expertise across React, Next.js, Angular, design systems, state architecture, and web performance.',
+  alternates: { canonical: '/services' },
+};
 
-const services: Service[] = [
+const services = [
   {
-    num: '01',
-    title: 'Front-End Development',
+    number: '01',
+    icon: LayoutTemplate,
+    title: 'Product front-end development',
     description:
-      'Building scalable and performant client-side applications using React.js, Next.js, and Angular. Ensuring pixel-perfect implementation and responsive design across all devices.',
-    href: '',
+      'Production-grade React, Next.js, and Angular interfaces that translate complex requirements into clear, responsive product experiences.',
+    outcomes: ['Responsive UI', 'Accessibility', 'SSR & App Router'],
   },
   {
-    num: '02',
-    title: 'SPA & State Management',
+    number: '02',
+    icon: Workflow,
+    title: 'Application architecture',
     description:
-      'Developing complex Single Page Applications (SPAs) with robust state management solutions like Redux-Toolkit and NGRX. Focusing on predictable data flow and application stability.',
-    href: '',
+      'Maintainable feature boundaries, predictable state, and resilient REST, GraphQL, and WebSocket flows for data-intensive products.',
+    outcomes: ['TypeScript', 'TanStack Query & Zustand', 'Real-time data'],
   },
   {
-    num: '03',
-    title: 'Performance Optimization',
+    number: '03',
+    icon: Gauge,
+    title: 'Performance & reliability',
     description:
-      'Auditing and improving web performance metrics (Core Web Vitals). Utilizing techniques like Lazy Loading, Code Splitting, and Server-Side Rendering (SSR) for lightning-fast user experiences.',
-    href: '',
+      'Measured improvements to Core Web Vitals, rendering hot paths, bundle delivery, and automated coverage for dependable releases.',
+    outcomes: ['~30% faster load', '<5ms critical renders', '~50% fewer rollbacks'],
   },
   {
-    num: '04',
-    title: 'Component Systems',
+    number: '04',
+    icon: Blocks,
+    title: 'Design systems',
     description:
-      'Creating reusable, accessible, and testable UI component libraries. Integrating frameworks like Material UI (MUI) and Tailwind CSS to build consistent, scalable design <systems className=""></systems>',
-    href: '',
+      'Accessible, reusable component foundations and practical migration plans that modernize products without stopping feature delivery.',
+    outcomes: ['Versioned UI libraries', 'Storybook', 'Legacy-to-React migration'],
   },
 ];
 
-const gridVariants: Variants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      delayChildren: 2.2,
-      staggerChildren: 0.15,
-    },
-  },
-};
-
-const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
-};
-
-const Services = () => {
+export default function ServicesPage() {
   return (
-    <section className="min-h-[80vh] flex flex-col justify-center py-12 xl:py-0">
-      <div className="container mx-auto">
-        <motion.div
-          variants={gridVariants}
-          initial="hidden"
-          animate="show"
-          className="grid grid-cols-1 md:grid-cols-2 gap-15"
-        >
+    <section className="section-shell">
+      <div className="container">
+        <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
+          <div>
+            <p className="eyebrow">Expertise</p>
+            <h1 className="page-title mt-4">I turn product complexity into maintainable interfaces.</h1>
+          </div>
+          <p className="max-w-2xl text-base leading-8 text-muted-foreground lg:ml-auto lg:text-lg">
+            My work sits at the intersection of product thinking, UI architecture,
+            and delivery. The goal is software that feels straightforward to users
+            and stays straightforward for engineers.
+          </p>
+        </div>
+
+        <div className="mt-14 grid gap-4 md:grid-cols-2">
           {services.map((service) => {
+            const Icon = service.icon;
+
             return (
-              <motion.div
-                variants={itemVariants}
-                key={service.num}
-                className="flex-1 flex flex-col justify-center gap-6 group"
+              <article
+                key={service.number}
+                className="group surface flex h-full flex-col rounded-3xl p-6 transition hover:-translate-y-1 hover:border-primary/20 sm:p-8"
               >
-                <div className="w-full flex justify-between items-center">
-                  <div className="text-5xl font-extrabold text-outline text-transparent group-hover:text-outline-hover transition-all duration-500">
-                    {service.num}
-                  </div>
-                  <Link
-                    href={service.href}
-                    className="w-17.5 h-17.5 rounded-full bg-white group flex justify-center items-center transition-all duration-500 hover:bg-accent hover:-rotate-45"
-                  >
-                    <BsArrowDownRight className="text-[#1c1c22] text-3xl transition-all duration-500" />
-                  </Link>
+                <div className="flex items-center justify-between">
+                  <span className="grid size-12 place-items-center rounded-2xl bg-primary/10 text-primary">
+                    <Icon aria-hidden="true" className="size-5" />
+                  </span>
+                  <span className="text-xs font-medium tracking-[0.18em] text-muted-foreground">
+                    {service.number}
+                  </span>
                 </div>
-                <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500">
+                <h2 className="mt-8 text-2xl font-semibold tracking-[-0.03em] transition-colors group-hover:text-primary">
                   {service.title}
                 </h2>
-                <p className="text-white/60">{service.description}</p>
-                <div className="border-b border-white/20 w-full"></div>
-              </motion.div>
+                <p className="mt-4 text-sm leading-7 text-muted-foreground">{service.description}</p>
+                <ul className="mt-auto flex flex-wrap gap-2 pt-7">
+                  {service.outcomes.map((outcome) => (
+                    <li key={outcome} className="rounded-full border border-white/8 bg-white/4 px-3 py-1.5 text-xs text-muted-foreground">
+                      {outcome}
+                    </li>
+                  ))}
+                </ul>
+              </article>
             );
           })}
-        </motion.div>
+        </div>
+
+        <div className="mt-10 flex flex-col items-start justify-between gap-6 rounded-3xl border border-primary/15 bg-primary/6 p-7 sm:flex-row sm:items-center sm:p-9">
+          <div>
+            <p className="text-lg font-semibold">Have a product or engineering challenge?</p>
+            <p className="mt-2 text-sm text-muted-foreground">Let&apos;s talk through the context and find the highest-leverage path forward.</p>
+          </div>
+          <Link
+            href="/contact"
+            className="inline-flex h-12 shrink-0 items-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground transition hover:-translate-y-0.5"
+          >
+            Start a conversation
+            <ArrowRight aria-hidden="true" className="size-4" />
+          </Link>
+        </div>
       </div>
     </section>
   );
-};
-
-export default Services;
+}

@@ -15,7 +15,7 @@ const socials = [
     path: 'https://www.linkedin.com/in/masood-moosavi/',
     name: 'LinkedIn',
   },
-  { icon: <FaTwitter />, path: 'https://x.com/Mas_Morale', name: 'Twitter' },
+  { icon: <FaTwitter />, path: 'https://x.com/m4sood_dev', name: 'Twitter' },
   { icon: <FaTelegram />, path: 'https://t.me/M4SooD', name: 'Telegram' },
 ];
 interface SocialsProps {
@@ -26,15 +26,16 @@ interface SocialsProps {
 const Socials = ({ containerStyles, iconStyles }: SocialsProps) => {
   return (
     <div className={containerStyles}>
-      {socials.map((item, index) => {
+      {socials.map((item) => {
         return (
           <Link
-            key={index}
+            key={item.name}
             href={item.path}
             className={iconStyles}
             target="_blank"
             rel="noopener noreferrer"
             aria-label={item.name}
+            title={item.name}
           >
             {item.icon}
           </Link>

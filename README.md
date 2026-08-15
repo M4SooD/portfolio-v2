@@ -1,108 +1,149 @@
-# 🚀 Masood Moosavi | Creative Developer Portfolio
+<div align="center">
 
-![Next.js](https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.9.3-blue?style=for-the-badge&logo=typescript)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38B2AC?style=for-the-badge&logo=tailwind-css)
-![Framer Motion](https://img.shields.io/badge/Framer_Motion-Latest-purple?style=for-the-badge&logo=framer)
+# Masoud Mousavi — Portfolio
 
-A high-performance, visually stunning, and interactive developer portfolio. Built with the latest web technologies to showcase projects, technical skills, and professional experience. Designed with a **Dark Mode Only** aesthetic, focusing on clean code, smooth animations, and best practices.
+**An evidence-led portfolio for a Senior Front-End Engineer building real-time fintech and SaaS products.**
 
-![Project Preview](./public/assets/preview.png)
+[Live portfolio](https://m4sood-dev.vercel.app) · [LinkedIn](https://www.linkedin.com/in/masood-moosavi/) · [Email](mailto:masoud.mousavi.dev@gmail.com)
 
-## ✨ Key Features
+![Next.js](https://img.shields.io/badge/Next.js_16-0A0A0A?style=flat-square&logo=nextdotjs&logoColor=white)
+![React](https://img.shields.io/badge/React_19-0A0A0A?style=flat-square&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-0A0A0A?style=flat-square&logo=typescript&logoColor=3178C6)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS_4-0A0A0A?style=flat-square&logo=tailwindcss&logoColor=06B6D4)
 
-- **⚡ Next.js 16 (App Router):** Utilizing Server Components for lightning-fast performance and SEO.
-- **🎨 Tailwind CSS v4:** Using the latest engine for zero-runtime styling and custom themes.
-- **🎬 Framer Motion:** Advanced page transitions (Stair Effect) and micro-interactions.
-- **📱 Fully Responsive:** Optimized layout for Mobile, Tablet, and Desktop devices.
-- **🧩 Component Architecture:** Modular structure using Shadcn UI and atomic design principles.
-- **🌑 Cyberpunk/Dark Aesthetic:** A professional dark theme with neon green accents.
-- **🔍 SEO Optimized:** Integrated Metadata and Open Graph support for better visibility.
-- **✉️ Functional Contact Form:** Ready for API integration.
+</div>
 
-## 🛠️ Tech Stack
+![Portfolio homepage](./public/assets/preview.jpg)
 
-- **Framework:** [Next.js 16](https://nextjs.org/)
-- **Language:** [TypeScript](https://www.typescriptlang.org/)
-- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
-- **UI Library:** [Shadcn UI](https://ui.shadcn.com/)
-- **Animations:** [Framer Motion](https://www.framer.com/motion/)
-- **Icons:** [Lucide React](https://lucide.dev/) & [React Icons](https://react-icons.github.io/react-icons/)
-- **Font:** [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono)
+## Overview
 
-## 🚀 Getting Started
+This repository contains my personal portfolio: a focused showcase of my front-end experience, technical strengths, and selected projects. The interface is designed for quick recruiter and hiring-manager scanning while still demonstrating production-minded engineering decisions.
 
-Follow these steps to run the project locally on your machine:
+The portfolio emphasizes:
 
-### 1. Clone the repository
+- Résumé-backed case studies with measurable performance and reliability outcomes
+- Honest presentation of private company work without exposing proprietary code
+- Public technical proof through the real-time [telemetry dashboard](https://github.com/M4SooD/telemetry-dashboard)
+- Responsive, accessible interaction across desktop and mobile
+- Server-rendered content with minimal client-side JavaScript
+- Dedicated pages for expertise, experience, selected work, and contact
+- Secure, validated contact-form delivery through Resend
+- Search metadata, Open Graph, robots, sitemap, and a custom not-found page
 
-    git clone [https://github.com/YOUR_USERNAME/portfolio-v2.git](https://github.com/YOUR_USERNAME/portfolio-v2.git)
-    cd portfolio-v2
+## Career proof at a glance
 
-### 2. Install dependencies
+| Context | Engineering contribution | Outcome |
+| --- | --- | --- |
+| RBTex · fintech | Route splitting, lazy loading, tree shaking, and performance budgets | ~30% faster initial load |
+| Bitbine · real-time crypto | Optimized order-book and candlestick transforms | ~50ms reduced to <5ms |
+| Bitbine · release reliability | Jest, Testing Library, and Cypress coverage in CI | ~50% fewer emergency rollbacks |
+| Pendar Ideas · HR SaaS | Phased AngularJS/jQuery-to-React migration | ~30 screens and 70–80% of the portal in five months |
+| Imorit · agency products | Reusable Sass component library | Setup reduced from 4–5 hours to about one hour |
 
-    npm install
-    # or if you use yarn/pnpm
-    yarn install
-    pnpm install
+## Technical highlights
 
-### 3. Run the development server
+| Area | Implementation |
+| --- | --- |
+| Framework | Next.js 16 App Router with React 19 and Cache Components |
+| Rendering | Static generation for portfolio pages; dynamic route only for contact delivery |
+| Styling | Tailwind CSS 4, responsive design tokens, reduced-motion support |
+| Components | Radix UI primitives for accessible tabs, sheets, selects, and tooltips |
+| Media | `next/image` responsive sizing, high-quality profile delivery, and route-specific loading |
+| Contact | Server-side parsing, validation, HTML escaping, honeypot protection, and Resend |
+| SEO | Route metadata, canonical URL, Open Graph, Twitter cards, robots, and sitemap |
+| Quality | Strict TypeScript, ESLint, production builds, and browser-based responsive checks |
 
-    npm run dev
+## Project structure
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+```text
+src/
+├── app/                 # App Router pages, metadata, sitemap, robots, and API route
+├── components/
+│   ├── contact/         # Contact form and submission states
+│   ├── home/            # Hero, proof points, expertise, and featured work
+│   ├── layout/          # Header, navigation, mobile menu, and footer
+│   ├── resume/          # Experience, skills, education, and profile content
+│   ├── ui/              # Reusable Radix-based primitives
+│   └── work/            # Interactive project showcase
+├── constants/           # Portfolio, résumé, and contact content
+└── lib/                 # Shared utilities
+```
 
-## 📂 Project Structure
+## Getting started
 
-This project follows a clean, feature-based architecture with Tailwind v4 (No config file):
+### Prerequisites
 
-    ├── public/              # Static assets (images, resume.pdf)
-    ├── src/
-    │   ├── app/             # Next.js App Router pages (Home, Resume, Work, Contact)
-    │   ├── components/      # React Components
-    │   │   ├── home/        # Homepage specific components
-    │   │   ├── layout/      # Layout components (Header, Nav, Transitions)
-    │   │   └── ui/          # Reusable UI elements (Shadcn)
-    │   ├── constants/       # Static data (Nav links, Socials)
-    │   ├── lib/             # Utility functions
-    │   └── types/           # TypeScript definitions
-    ├── postcss.config.mjs   # PostCSS configuration
-    ├── next.config.ts       # Next.js configuration
-    └── ...
+- Node.js 20 or newer
+- npm 10 or newer
 
-## 🎨 Customization Guide
+### Installation
 
-### Personal Information
+```bash
+git clone https://github.com/M4SooD/portfolio-v2.git
+cd portfolio-v2
+npm install
+```
 
-To update your name, title, and bio, edit the following files:
+Create a local environment file:
 
-- `src/components/home/Hero.tsx`
-- `src/components/home/Stats.tsx`
+```bash
+cp .env.example .env.local
+```
 
-### Resume / CV
+Then configure the contact form:
 
-Replace the existing PDF file located at:
+```env
+RESEND_API_KEY=re_your_api_key
+CONTACT_EMAIL=you@example.com
+# Optional in production; use an address on a verified Resend domain
+RESEND_FROM_EMAIL=Portfolio Contact <portfolio@your-domain.com>
+```
 
-- `public/assets/resume.pdf`
+Start the development server:
 
-### Color Scheme
+```bash
+npm run dev
+```
 
-The project uses CSS variables for theming. You can adjust the primary and accent colors in:
+Open [http://localhost:3000](http://localhost:3000).
 
-- `src/app/globals.css` (Look for `--primary` and `--accent`)
+## Available scripts
 
-## 📦 Deployment
+```bash
+npm run dev      # Start the local development server
+npm run lint     # Run ESLint across the repository
+npm run build    # Create and validate the production build
+npm run start    # Serve the production build
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme).
+## Deployment
 
-1. Push your code to a GitHub repository.
-2. Import the project into Vercel.
-3. Vercel will automatically detect Next.js and deploy.
+The project is optimized for Vercel:
 
-## 📄 License
+1. Import the GitHub repository into Vercel.
+2. Add `RESEND_API_KEY`, `CONTACT_EMAIL`, and optionally `RESEND_FROM_EMAIL`.
+3. Deploy. Next.js will statically generate the public portfolio routes and keep the contact endpoint dynamic.
 
-This project is open source and available under the [MIT License](LICENSE).
+## Content principles
+
+- Claims are tied to outcomes from my current résumé.
+- Private client and company code is identified clearly instead of represented as open source.
+- Public projects are featured only when the repository supports the description shown in the UI.
+- The interface is written for fast recruiter scanning, with deeper implementation detail available on the work and experience pages.
+
+## Customization
+
+- Profile and experience content: `src/constants/resume.tsx`
+- Project data: `src/constants/work.tsx`
+- Homepage positioning: `src/components/home/Hero.tsx`
+- Theme tokens and global visual system: `src/app/globals.css`
+- Résumé PDF: `public/assets/Masoud_Mousavi_FrontEnd_Engineer.pdf`
+- Social preview image: `public/assets/preview.jpg`
 
 ---
 
-**Developed by [Masood Moosavi](https://github.com/M4SooD)**
+<div align="center">
+
+Designed and built by [Masoud Mousavi](https://github.com/M4SooD).
+
+</div>

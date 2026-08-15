@@ -1,13 +1,15 @@
 import Hero from '@/components/home/Hero';
 import Stats from '@/components/home/Stats';
+import { Expertise } from '@/components/home/Expertise';
+import { FeaturedWork } from '@/components/home/FeaturedWork';
 
-const Home = () => {
+export default function Home() {
   return (
-    <section className="h-full">
+    <>
       <Hero />
       <Stats />
-    </section>
+      <Expertise />
+      <FeaturedWork />
+    </>
   );
-};
-
-export default Home;
+}

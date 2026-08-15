@@ -1,26 +1,17 @@
-import type { Metadata } from 'next';
-import { JetBrains_Mono } from 'next/font/google';
+import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { Header } from '@/components/layout/Header';
-import StairTransition from '@/components/layout/StairTransition';
-import PageTransition from '@/components/layout/PageTransition';
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800'],
-  variable: '--font-jetbrainsMono',
-  display: 'swap',
-});
+import { Footer } from '@/components/layout/Footer';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://m4sood-dev.vercel.app/'),
 
   title: {
-    default: 'Masood Moosavi | Senior Front-End Developer',
-    template: '%s | Masood Moosavi',
+    default: 'Masoud Mousavi | Senior Front-End Engineer',
+    template: '%s | Masoud Mousavi',
   },
   description:
-    'Portfolio of Masood Moosavi, a Senior Front-End Engineer specializing in Next.js, React, TypeScript, and high-performance UI architecture.',
+    'Portfolio of Masoud Mousavi, a Senior Front-End Engineer specializing in Next.js, React, TypeScript, and high-performance UI architecture.',
 
   keywords: [
     'Senior Front-End Engineer',
@@ -28,31 +19,53 @@ export const metadata: Metadata = {
     'Next.js Portfolio',
     'TypeScript Developer',
     'Web Performance Optimization',
-    'Masood Moosavi',
+    'Masoud Mousavi',
     'Tailwind CSS',
-    'Framer Motion',
+    'Real-Time Web Applications',
+    'WebSockets',
   ],
 
-  authors: [{ name: 'Masood Moosavi' }],
-  creator: 'Masood Moosavi',
+  authors: [{ name: 'Masoud Mousavi' }],
+  creator: 'Masoud Mousavi',
+  category: 'technology',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
 
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: 'https://m4sood-dev.vercel.app',
-    title: 'Masood Moosavi | Senior Front-End Developer',
+    title: 'Masoud Mousavi | Senior Front-End Engineer',
     description:
-      'Explore my portfolio featuring highly performant, scalable user interfaces built with modern web technologies.',
-    siteName: 'Masood Moosavi Portfolio',
+      'Senior front-end case studies across real-time fintech, SaaS migrations, performance, testing, and design systems.',
+    siteName: 'Masoud Mousavi Portfolio',
     images: [
       {
-        url: '/assets/preview.png',
-        width: 1200,
-        height: 630,
-        alt: 'Masood Moosavi - Senior Front-End Engineer',
+        url: '/assets/preview.jpg',
+        width: 1409,
+        height: 846,
+        alt: 'Masoud Mousavi - Senior Front-End Engineer',
       },
     ],
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Masoud Mousavi | Senior Front-End Engineer',
+    description:
+      'Senior Front-End Engineer building fast, scalable, and accessible product experiences.',
+    images: ['/assets/preview.jpg'],
+  },
+  alternates: {
+    canonical: '/',
+  },
+};
+
+export const viewport: Viewport = {
+  colorScheme: 'dark',
+  themeColor: '#090b10',
 };
 
 export default function RootLayout({
@@ -61,13 +74,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${jetbrainsMono.variable} antialiased`}>
+    <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
+      <body className="flex min-h-screen flex-col">
+        <a
+          href="#main-content"
+          className="fixed left-4 top-4 z-100 -translate-y-24 rounded-full bg-primary px-5 py-3 font-semibold text-primary-foreground transition-transform focus:translate-y-0"
+        >
+          Skip to content
+        </a>
         <Header />
-        <StairTransition />
-        <PageTransition>
-          <main>{children}</main>
-        </PageTransition>
+        <main id="main-content" tabIndex={-1} className="flex-1">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );
