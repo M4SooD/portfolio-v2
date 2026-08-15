@@ -34,10 +34,9 @@ const Hero = () => {
             </span>
           </h1>
           <p className="mt-7 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg">
-            I&apos;m Masoud Mousavi, a Senior Front-End Engineer with 4+ years
-            building real-time fintech and SaaS products. I own front-end
-            architecture end to end—from state design and component systems to
-            testing, accessibility, and performance.
+            I&apos;m Masoud Mousavi, a Senior Front-End Engineer building real-time
+            fintech and SaaS products—from scalable architecture to accessible,
+            production-ready interfaces.
           </p>
 
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
