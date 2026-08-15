@@ -22,7 +22,7 @@ const Experience = () => {
                 <h3 className="text-lg font-semibold">{item.position}</h3>
                 <p className="mt-1 text-sm font-medium text-primary">{item.company}</p>
               </div>
-              <time className="w-fit rounded-full border border-white/8 bg-white/4 px-3 py-1.5 text-xs text-muted-foreground">
+              <time className="w-fit rounded-full border border-border/80 bg-card/65 px-3 py-1.5 text-xs text-muted-foreground">
                 {item.duration}
               </time>
             </div>

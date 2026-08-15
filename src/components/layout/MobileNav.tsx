@@ -21,12 +21,12 @@ export const MobileNav = () => {
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger
         aria-label="Open navigation menu"
-        className="grid size-11 cursor-pointer place-items-center rounded-xl border border-white/10 bg-white/5 text-primary"
+        className="grid size-11 cursor-pointer place-items-center rounded-xl border border-border/80 bg-card/75 text-primary shadow-sm transition-colors hover:border-primary/45 hover:bg-primary/10"
       >
         <Menu aria-hidden="true" className="size-5" />
       </SheetTrigger>
 
-      <SheetContent className="flex flex-col border-l border-white/10 bg-[#0d1016]/98 p-8">
+      <SheetContent className="flex flex-col border-l border-border bg-background/98 p-8">
         <SheetTitle className="sr-only">Menu</SheetTitle>
         <SheetDescription className="sr-only">
           Navigate to the main sections of Masoud Mousavi&apos;s portfolio.
@@ -52,7 +52,7 @@ export const MobileNav = () => {
                 className={`rounded-xl px-4 py-4 text-lg font-medium transition-colors ${
                   isActive
                     ? 'bg-primary/10 text-primary'
-                    : 'text-muted-foreground hover:bg-white/5 hover:text-foreground'
+                    : 'text-muted-foreground hover:bg-muted/70 hover:text-foreground'
                 }`}
               >
                 {link.name}
@@ -61,7 +61,7 @@ export const MobileNav = () => {
           })}
         </nav>
 
-        <p className="mt-auto border-t border-white/8 pt-6 text-sm text-muted-foreground">
+        <p className="mt-auto border-t border-border/80 pt-6 text-sm text-muted-foreground">
           Senior Front-End Engineer
           <br />
           Tehran, Iran · Open to remote roles

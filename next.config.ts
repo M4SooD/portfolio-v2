@@ -3,7 +3,7 @@ import type { NextConfig } from 'next';
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   images: {
-    qualities: [75, 80, 100],
+    qualities: [75, 80, 92],
   },
   reactCompiler: true,
   cacheComponents: true,

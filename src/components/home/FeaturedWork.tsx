@@ -53,7 +53,7 @@ export const FeaturedWork = () => {
                         } transition duration-500 group-hover:scale-[1.03]`}
                       />
                     ) : (
-                      <div className="absolute inset-0 grid place-items-center bg-linear-to-br from-primary/12 via-[#111923] to-[#0b0f15] p-6 text-center">
+                      <div className="absolute inset-0 grid place-items-center bg-linear-to-br from-primary/12 via-[#111923] to-[#0b0f15] p-6 text-center text-white">
                         <div>
                           <p className="text-[0.68rem] font-medium uppercase tracking-[0.24em] text-primary">
                             {project.kind === 'professional'
@@ -64,14 +64,14 @@ export const FeaturedWork = () => {
                             {project.title}
                           </p>
                           {project.role ? (
-                            <p className="mt-2 text-xs text-muted-foreground">
+                            <p className="mt-2 text-xs text-white/65">
                               {project.role}
                             </p>
                           ) : null}
                         </div>
                       </div>
                     )}
-                    <div className="absolute right-4 top-4 grid size-10 place-items-center rounded-full border border-white/15 bg-black/50 backdrop-blur-md transition group-hover:bg-primary group-hover:text-primary-foreground">
+                    <div className="absolute right-4 top-4 grid size-10 place-items-center rounded-full border border-white/15 bg-black/50 text-white backdrop-blur-md transition group-hover:bg-primary group-hover:text-primary-foreground">
                       <ArrowUpRight aria-hidden="true" className="size-4" />
                     </div>
                   </div>

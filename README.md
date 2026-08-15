@@ -25,6 +25,7 @@ The portfolio emphasizes:
 - Honest presentation of private company work without exposing proprietary code
 - Public technical proof through the real-time [telemetry dashboard](https://github.com/M4SooD/telemetry-dashboard)
 - Responsive, accessible interaction across desktop and mobile
+- Persistent light and dark themes with an accessible keyboard-friendly switch
 - Server-rendered content with minimal client-side JavaScript
 - Dedicated pages for expertise, experience, selected work, and contact
 - Secure, validated contact-form delivery through Resend
@@ -46,12 +47,12 @@ The portfolio emphasizes:
 | --- | --- |
 | Framework | Next.js 16 App Router with React 19 and Cache Components |
 | Rendering | Static generation for portfolio pages; dynamic route only for contact delivery |
-| Styling | Tailwind CSS 4, responsive design tokens, reduced-motion support |
+| Styling | Tailwind CSS 4, responsive light/dark design tokens, reduced-motion support |
 | Components | Radix UI primitives for accessible tabs, sheets, selects, and tooltips |
-| Media | `next/image` responsive sizing, high-quality profile delivery, and route-specific loading |
+| Media | `next/image` responsive sizing, preloaded LCP media, blur placeholders, and route-specific loading |
 | Contact | Server-side parsing, validation, HTML escaping, honeypot protection, and Resend |
 | SEO | Route metadata, canonical URL, Open Graph, Twitter cards, robots, and sitemap |
-| Quality | Strict TypeScript, ESLint, production builds, and browser-based responsive checks |
+| Quality | Vitest, Testing Library, strict TypeScript, ESLint, production builds, and responsive checks |
 
 ## Project structure
 
@@ -63,6 +64,7 @@ src/
 │   ├── home/            # Hero, proof points, expertise, and featured work
 │   ├── layout/          # Header, navigation, mobile menu, and footer
 │   ├── resume/          # Experience, skills, education, and profile content
+│   ├── theme/           # Persistent color-mode provider and accessible switch
 │   ├── ui/              # Reusable Radix-based primitives
 │   └── work/            # Interactive project showcase
 ├── constants/           # Portfolio, résumé, and contact content
@@ -112,6 +114,7 @@ Open [http://localhost:3000](http://localhost:3000).
 ```bash
 npm run dev      # Start the local development server
 npm run lint     # Run ESLint across the repository
+npm test         # Run the regression test suite
 npm run build    # Create and validate the production build
 npm run start    # Serve the production build
 ```

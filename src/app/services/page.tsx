@@ -83,7 +83,7 @@ export default function ServicesPage() {
                 <p className="mt-4 text-sm leading-7 text-muted-foreground">{service.description}</p>
                 <ul className="mt-auto flex flex-wrap gap-2 pt-7">
                   {service.outcomes.map((outcome) => (
-                    <li key={outcome} className="rounded-full border border-white/8 bg-white/4 px-3 py-1.5 text-xs text-muted-foreground">
+                    <li key={outcome} className="rounded-full border border-border/80 bg-card/65 px-3 py-1.5 text-xs text-muted-foreground">
                       {outcome}
                     </li>
                   ))}
