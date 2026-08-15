@@ -43,6 +43,7 @@ const Hero = () => {
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/work"
+              prefetch={false}
               className="inline-flex h-13 items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground transition hover:-translate-y-0.5 hover:shadow-[0_12px_30px_rgba(82,242,173,0.2)]"
             >
               View selected work

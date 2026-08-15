@@ -10,7 +10,6 @@ export const Header = () => {
       <div className="container flex h-20 items-center justify-between">
         <Link
           href="/"
-          aria-label="Masoud Mousavi — homepage"
           className="group flex items-center gap-3"
         >
           <span className="grid size-10 place-items-center rounded-xl border border-primary/25 bg-primary/10 text-sm font-bold text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">

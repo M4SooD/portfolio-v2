@@ -18,6 +18,7 @@ export const FeaturedWork = () => {
           </div>
           <Link
             href="/work"
+            prefetch={false}
             className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-primary hover:underline"
           >
             View all projects
@@ -34,7 +35,6 @@ export const FeaturedWork = () => {
               <article key={project.num} className="group surface overflow-hidden rounded-3xl">
                 <Link
                   href={href}
-                  aria-label={`View ${project.title}${isExternal ? ' in a new tab' : ''}`}
                   target={isExternal ? '_blank' : undefined}
                   rel={isExternal ? 'noopener noreferrer' : undefined}
                   className="block"
@@ -79,6 +79,9 @@ export const FeaturedWork = () => {
                     <div className="flex items-center justify-between gap-4">
                       <h3 className="text-xl font-semibold tracking-tight">
                         {project.title}
+                        {isExternal ? (
+                          <span className="sr-only"> (opens in a new tab)</span>
+                        ) : null}
                       </h3>
                       <span className="text-xs uppercase tracking-widest text-muted-foreground">
                         {project.num}

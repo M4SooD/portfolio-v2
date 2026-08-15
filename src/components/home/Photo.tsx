@@ -1,23 +1,42 @@
-import Image from 'next/image';
+import Image, { getImageProps } from 'next/image';
 import { Code2, Gauge, Layers3 } from 'lucide-react';
 import profilePhoto from '../../../public/assets/photo1.png';
 
+const photoSizes =
+  '(min-width: 1280px) 472px, (min-width: 1024px) 42vw, (min-width: 512px) 472px, calc(100vw - 40px)';
+
 const Photo = () => {
+  const {
+    props: { sizes, srcSet },
+  } = getImageProps({
+    src: profilePhoto,
+    alt: '',
+    fill: true,
+    quality: 92,
+    sizes: photoSizes,
+  });
+
   return (
     <div className="relative mx-auto max-w-118 lg:-translate-y-8 lg:ml-auto xl:-translate-y-10">
+      <link
+        rel="preload"
+        as="image"
+        imageSrcSet={srcSet}
+        imageSizes={sizes}
+        media="(min-width: 1024px)"
+      />
       <div className="absolute -inset-7 -z-10 rounded-full bg-primary/10 blur-3xl" />
       <div className="surface relative aspect-[0.92] overflow-hidden rounded-[2rem] p-3">
         <div className="relative h-full overflow-hidden rounded-[1.4rem] bg-linear-to-br from-[#1b2530] to-[#0d1118]">
           <div className="absolute inset-x-0 top-0 z-10 h-32 bg-linear-to-b from-black/20 to-transparent" />
           <Image
             src={profilePhoto}
-            preload
             fill
             quality={92}
             placeholder="blur"
             alt="Masoud Mousavi, Senior Front-End Engineer"
             className="object-cover object-[60%_center]"
-            sizes="(min-width: 1280px) 472px, (min-width: 1024px) 42vw, (min-width: 512px) 472px, calc(100vw - 40px)"
+            sizes={photoSizes}
           />
           <div className="absolute inset-x-5 bottom-5 z-20 rounded-2xl border border-white/12 bg-[#0b0e13]/85 p-4 text-white backdrop-blur-xl">
             <p className="text-sm font-semibold">Engineering with product context</p>

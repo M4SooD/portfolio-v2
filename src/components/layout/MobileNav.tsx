@@ -46,6 +46,7 @@ export const MobileNav = () => {
             return (
               <Link
                 href={link.path}
+                prefetch={link.path === '/work' ? false : undefined}
                 key={link.path}
                 aria-current={isActive ? 'page' : undefined}
                 onClick={() => setIsOpen(false)}
