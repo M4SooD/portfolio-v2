@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, ArrowUpRight, LockKeyhole } from 'lucide-react';
+import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { projects } from '@/constants/work';
+import rbtexPreview from '../../../public/assets/work/rbtex.jpg';
 
 export const FeaturedWork = () => {
   const featuredProjects = [projects[0], projects[2], projects[4]];
@@ -42,9 +43,10 @@ export const FeaturedWork = () => {
                   <div className="relative aspect-[16/10] overflow-hidden bg-secondary">
                     {project.image ? (
                       <Image
-                        src={project.image}
+                        src={project.num === '01' ? rbtexPreview : project.image}
                         alt={`${project.title} project preview`}
                         fill
+                        placeholder={project.num === '01' ? 'blur' : 'empty'}
                         sizes="(min-width: 1280px) 385px, (min-width: 1024px) 31vw, calc(100vw - 40px)"
                         className={`${
                           project.imageFit === 'contain'
@@ -97,12 +99,6 @@ export const FeaturedWork = () => {
                         </li>
                       ))}
                     </ul>
-                    {project.kind === 'professional' ? (
-                      <p className="mt-5 flex items-center gap-2 text-xs text-muted-foreground">
-                        <LockKeyhole aria-hidden="true" className="size-3.5" />
-                        Private company code
-                      </p>
-                    ) : null}
                   </div>
                 </Link>
               </article>

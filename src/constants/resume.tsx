@@ -122,7 +122,7 @@ export const experience: Experience = {
     'A track record of owning complex front-end work across fintech, HR SaaS, and agency products—with measurable improvements to speed, reliability, and team delivery.',
   items: [
     {
-      company: 'RBTex (Arbitex)',
+      company: 'RBTex',
       position: 'Senior Front-End Developer',
       duration: 'Dec 2024 – Present',
       highlights: [

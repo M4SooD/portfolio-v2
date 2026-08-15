@@ -26,9 +26,9 @@ const Photo = () => {
         media="(min-width: 1024px)"
       />
       <div className="absolute -inset-7 -z-10 rounded-full bg-primary/10 blur-3xl" />
-      <div className="surface relative aspect-[0.92] overflow-hidden rounded-[2rem] p-3">
-        <div className="relative h-full overflow-hidden rounded-[1.4rem] bg-linear-to-br from-[#1b2530] to-[#0d1118]">
-          <div className="absolute inset-x-0 top-0 z-10 h-32 bg-linear-to-b from-black/20 to-transparent" />
+      <div className="surface relative aspect-[0.92] overflow-hidden rounded-[2rem] bg-card/90 p-3 dark:bg-card/75">
+        <div className="relative h-full overflow-hidden rounded-[1.4rem] bg-linear-to-br from-[#d6e6e0] via-[#edf5f2] to-[#bfd5cd] dark:from-[#1b2530] dark:via-[#151d26] dark:to-[#0d1118]">
+          <div className="absolute inset-x-0 top-0 z-10 h-32 bg-linear-to-b from-white/30 to-transparent dark:from-black/20" />
           <Image
             src={profilePhoto}
             fill
@@ -38,9 +38,9 @@ const Photo = () => {
             className="object-cover object-[60%_center]"
             sizes={photoSizes}
           />
-          <div className="absolute inset-x-5 bottom-5 z-20 rounded-2xl border border-white/12 bg-[#0b0e13]/85 p-4 text-white backdrop-blur-xl">
+          <div className="absolute inset-x-5 bottom-5 z-20 rounded-2xl border border-border/90 bg-card/90 p-4 text-foreground shadow-xl backdrop-blur-xl dark:border-white/12 dark:bg-[#0b0e13]/85 dark:text-white">
             <p className="text-sm font-semibold">Engineering with product context</p>
-            <p className="mt-1 text-xs leading-5 text-white/65">
+            <p className="mt-1 text-xs leading-5 text-muted-foreground dark:text-white/65">
               From architecture and accessibility to the final interaction detail.
             </p>
           </div>
