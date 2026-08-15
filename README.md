@@ -1,11 +1,14 @@
 <div align="center">
 
-# Masoud Mousavi — Portfolio
+# Masoud Mousavi — Portfolio v3
 
 **An evidence-led portfolio for a Senior Front-End Engineer building real-time fintech and SaaS products.**
 
 [Live portfolio](https://m4sood-dev.vercel.app) · [LinkedIn](https://www.linkedin.com/in/masood-moosavi/) · [Email](mailto:masoud.mousavi.dev@gmail.com)
 
+![Version](https://img.shields.io/badge/version-3.0.0-087A55?style=flat-square)
+[![Quality Gate](https://github.com/M4SooD/portfolio-v2/actions/workflows/quality.yml/badge.svg)](https://github.com/M4SooD/portfolio-v2/actions/workflows/quality.yml)
+[![Lighthouse CI](https://github.com/M4SooD/portfolio-v2/actions/workflows/lighthouse.yml/badge.svg)](https://github.com/M4SooD/portfolio-v2/actions/workflows/lighthouse.yml)
 ![Next.js](https://img.shields.io/badge/Next.js_16-0A0A0A?style=flat-square&logo=nextdotjs&logoColor=white)
 ![React](https://img.shields.io/badge/React_19-0A0A0A?style=flat-square&logo=react&logoColor=61DAFB)
 ![TypeScript](https://img.shields.io/badge/TypeScript-0A0A0A?style=flat-square&logo=typescript&logoColor=3178C6)
@@ -52,7 +55,7 @@ The portfolio emphasizes:
 | Media | `next/image` responsive sizing, preloaded LCP media, blur placeholders, and route-specific loading |
 | Contact | Server-side parsing, validation, HTML escaping, honeypot protection, and Resend |
 | SEO | Route metadata, canonical URL, Open Graph, Twitter cards, robots, and sitemap |
-| Quality | Vitest, Testing Library, strict TypeScript, ESLint, production builds, and responsive checks |
+| Quality | Automated GitHub quality gates, Lighthouse budgets, Vitest, strict TypeScript, ESLint, and production builds |
 
 ## Project structure
 
@@ -114,10 +117,28 @@ Open [http://localhost:3000](http://localhost:3000).
 ```bash
 npm run dev      # Start the local development server
 npm run lint     # Run ESLint across the repository
+npm run typecheck # Validate TypeScript without emitting files
 npm test         # Run the regression test suite
 npm run build    # Create and validate the production build
 npm run start    # Serve the production build
+npm run check    # Run the complete local quality gate
 ```
+
+## Quality automation
+
+- **Quality Gate** runs linting, TypeScript validation, tests, and a production build for pull requests and updates to `master`.
+- **Lighthouse CI** audits the homepage and key portfolio routes twice, enforces performance and accessibility budgets, and stores the reports as private workflow artifacts.
+- **Release** validates version tags before creating a GitHub release with generated notes.
+
+## Versioning and releases
+
+The current portfolio milestone is **3.0.0**. The repository follows semantic versioning for meaningful portfolio milestones:
+
+- Patch releases contain copy, styling, and bug fixes.
+- Minor releases add projects, sections, or non-breaking capabilities.
+- Major releases represent a substantial redesign or architectural iteration.
+
+After a release commit reaches `master`, pushing a matching tag such as `v3.0.0` creates the GitHub release automatically. Releases are reserved for meaningful milestones rather than every content edit. See [CHANGELOG.md](./CHANGELOG.md) for release history.
 
 ## Deployment
 
