@@ -1,76 +1,49 @@
-'use client';
-
-import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { Code2, Gauge, Layers3 } from 'lucide-react';
 
 const Photo = () => {
   return (
-    <div className="w-full h-full relative flex justify-center items-center">
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{
-          opacity: 1,
-          transition: { delay: 2, duration: 0.4, ease: 'easeIn' },
-        }}
-        className="relative w-75 h-75 xl:w-126.5 xl:h-126.5"
-      >
-        {/* Animated SVG Ring */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{
-            opacity: 1,
-            transition: { delay: 2.4, duration: 0.4, ease: 'easeInOut' },
-          }}
-          className="absolute inset-0"
-        >
-          <motion.svg
-            className="w-75 xl:w-126.5 h-75 xl:h-126.5"
-            fill="transparent"
-            viewBox="0 0 506 506"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <motion.circle
-              cx="253"
-              cy="253"
-              r="250"
-              stroke="#00ff99"
-              strokeWidth="4"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              initial={{ strokeDasharray: '24 10 0 0' }}
-              animate={{
-                strokeDasharray: ['15 120 25 25', '16 25 92 72', '4 250 22 22'],
-                rotate: [120, 360],
-              }}
-              transition={{
-                duration: 20,
-                repeat: Infinity,
-                repeatType: 'reverse',
-              }}
-            />
-          </motion.svg>
-        </motion.div>
-
-        {/* The Image Container */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{
-            opacity: 1,
-            transition: { delay: 0.2, duration: 0.4, ease: 'easeInOut' },
-          }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-74.5 h-74.5 xl:w-124.5 xl:h-124.5 z-10 rounded-full overflow-hidden"
-        >
+    <div className="relative mx-auto max-w-118 lg:-translate-y-8 lg:ml-auto xl:-translate-y-10">
+      <div className="absolute -inset-7 -z-10 rounded-full bg-primary/10 blur-3xl" />
+      <div className="surface relative aspect-[0.92] overflow-hidden rounded-[2rem] p-3">
+        <div className="relative h-full overflow-hidden rounded-[1.4rem] bg-linear-to-br from-[#1b2530] to-[#0d1118]">
+          <div className="absolute inset-x-0 top-0 z-10 h-32 bg-linear-to-b from-black/20 to-transparent" />
           <Image
             src="/assets/photo1.png"
             priority
-            quality={100}
             fill
-            alt="Masood Moosavi Profile"
-            className="object-cover"
-            sizes="100vw"
+            quality={100}
+            alt="Masoud Mousavi, Senior Front-End Engineer"
+            className="object-cover object-[60%_center]"
+            sizes="(min-width: 1280px) 944px, (min-width: 1024px) 80vw, (min-width: 640px) 944px, calc(200vw - 96px)"
           />
-        </motion.div>
-      </motion.div>
+          <div className="absolute inset-x-5 bottom-5 z-20 rounded-2xl border border-white/12 bg-[#0b0e13]/85 p-4 backdrop-blur-xl">
+            <p className="text-sm font-semibold">Engineering with product context</p>
+            <p className="mt-1 text-xs leading-5 text-muted-foreground">
+              From architecture and accessibility to the final interaction detail.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="surface absolute -left-4 top-[18%] hidden items-center gap-3 rounded-2xl p-3 sm:flex lg:-left-9">
+        <span className="grid size-9 place-items-center rounded-xl bg-primary/12 text-primary">
+          <Gauge aria-hidden="true" className="size-4" />
+        </span>
+        <span className="text-xs font-medium">Performance-first</span>
+      </div>
+      <div className="surface absolute -right-4 top-[36%] hidden items-center gap-3 rounded-2xl p-3 sm:flex lg:-right-7">
+        <span className="grid size-9 place-items-center rounded-xl bg-cyan-300/10 text-cyan-300">
+          <Layers3 aria-hidden="true" className="size-4" />
+        </span>
+        <span className="text-xs font-medium">Scalable systems</span>
+      </div>
+      <div className="surface absolute -left-2 bottom-[18%] hidden items-center gap-3 rounded-2xl p-3 sm:flex lg:-left-7">
+        <span className="grid size-9 place-items-center rounded-xl bg-violet-400/10 text-violet-300">
+          <Code2 aria-hidden="true" className="size-4" />
+        </span>
+        <span className="text-xs font-medium">Clean TypeScript</span>
+      </div>
     </div>
   );
 };

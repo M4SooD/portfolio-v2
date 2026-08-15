@@ -1,34 +1,28 @@
+import { GraduationCap } from 'lucide-react';
 import { education } from '@/constants/resume';
-import { ScrollArea } from '@/components/ui/scroll-area';
 
 const Education = () => {
   return (
-    <div className="flex flex-col gap-7.5 text-center xl:text-left">
-      <h3 className="text-4xl font-bold">{education.title}</h3>
-      <p className="max-w-150 text-white/60 mx-auto xl:mx-0">
-        {education.description}
-      </p>
-      <ScrollArea className="h-100">
-        <ul className="grid grid-cols-1 lg:grid-cols-2 gap-7.5">
-          {education.items.map((item, index) => {
-            return (
-              <li
-                key={index}
-                className="bg-[#232329] h-46 py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1"
-              >
-                <span className="text-accent">{item.duration}</span>
-                <h3 className="text-xl max-w-65 min-h-15 text-center lg:text-left">
-                  {item.degree}
-                </h3>
-                <div className="flex items-center gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
-                  <p className="text-white/60">{item.institution}</p>
-                </div>
-              </li>
-            );
-          })}
-        </ul>
-      </ScrollArea>
+    <div>
+      <div className="flex items-center gap-3">
+        <span className="grid size-11 place-items-center rounded-xl bg-primary/10 text-primary">
+          <GraduationCap aria-hidden="true" className="size-5" />
+        </span>
+        <div>
+          <h2 className="text-2xl font-semibold tracking-tight">{education.title}</h2>
+          <p className="text-sm text-muted-foreground">Technical and academic foundation</p>
+        </div>
+      </div>
+
+      <div className="mt-8 grid gap-4 md:grid-cols-2">
+        {education.items.map((item) => (
+          <article key={`${item.institution}-${item.degree}`} className="surface rounded-2xl p-6 sm:p-7">
+            <time className="text-xs font-semibold uppercase tracking-widest text-primary">{item.duration}</time>
+            <h3 className="mt-4 text-lg font-semibold leading-7">{item.degree}</h3>
+            <p className="mt-2 text-sm text-muted-foreground">{item.institution}</p>
+          </article>
+        ))}
+      </div>
     </div>
   );
 };

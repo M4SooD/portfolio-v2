@@ -1,43 +1,29 @@
+import { Code2 } from 'lucide-react';
 import { skills } from '@/constants/resume';
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from '@/components/ui/tooltip';
-import { ScrollArea } from '@/components/ui/scroll-area';
 
 const Skills = () => {
   return (
-    <div className="flex flex-col gap-7.5">
-      <div className="flex flex-col gap-7.5 text-center xl:text-left">
-        <h3 className="text-4xl font-bold">{skills.title}</h3>
-        <p className="max-w-150 text-white/60 mx-auto xl:mx-0">
-          {skills.description}
-        </p>
+    <div>
+      <div className="flex items-center gap-3">
+        <span className="grid size-11 place-items-center rounded-xl bg-primary/10 text-primary">
+          <Code2 aria-hidden="true" className="size-5" />
+        </span>
+        <div>
+          <h2 className="text-2xl font-semibold tracking-tight">{skills.title}</h2>
+          <p className="text-sm text-muted-foreground">Tools I use to deliver production work</p>
+        </div>
       </div>
-      <ScrollArea className="h-100">
-        <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-7.5">
-          {skills.skillList.map((skill, index) => {
-            return (
-              <li key={index}>
-                <TooltipProvider delayDuration={100}>
-                  <Tooltip>
-                    <TooltipTrigger className="w-full h-37.5 bg-[#232329] rounded-xl flex justify-center items-center group">
-                      <div className="text-6xl group-hover:text-accent transition-all duration-300">
-                        {skill.icon}
-                      </div>
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p className="capitalize">{skill.name}</p>
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
-              </li>
-            );
-          })}
-        </ul>
-      </ScrollArea>
+
+      <ul className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+        {skills.skillList.map((skill) => (
+          <li key={skill.name} className="surface group flex min-h-32 flex-col items-center justify-center gap-3 rounded-2xl p-4 text-center transition hover:-translate-y-1 hover:border-primary/20">
+            <span className="text-3xl text-muted-foreground transition-colors group-hover:text-primary" aria-hidden="true">
+              {skill.icon}
+            </span>
+            <span className="text-xs font-medium">{skill.name}</span>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

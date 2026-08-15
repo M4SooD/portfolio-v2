@@ -1,23 +1,31 @@
 import { ReactNode } from 'react';
-import { FaReact, FaAngular, FaFigma, FaNodeJs, FaJs } from 'react-icons/fa';
 import {
-  SiTailwindcss,
-  SiNextdotjs,
-  SiRedux,
-  SiTypescript,
+  FaAngular,
+  FaBolt,
+  FaCode,
+  FaDocker,
+  FaJs,
+  FaReact,
+  FaUniversalAccess,
+} from 'react-icons/fa';
+import {
+  SiApollographql,
   SiCypress,
-  SiJest,
-  SiThreedotjs,
-  SiMongodb,
-  SiExpress,
-  SiNgrx,
-  SiReactquery,
-  SiReacthookform,
-  SiStorybook,
-  SiFramer,
-  SiWebpack,
-  SiSass,
   SiGit,
+  SiGraphql,
+  SiJest,
+  SiNextdotjs,
+  SiReactquery,
+  SiRedux,
+  SiSass,
+  SiSentry,
+  SiSocketdotio,
+  SiStorybook,
+  SiTailwindcss,
+  SiTestinglibrary,
+  SiTypescript,
+  SiVite,
+  SiWebpack,
 } from 'react-icons/si';
 
 export interface AboutInfoItem {
@@ -35,12 +43,11 @@ export interface ExperienceItem {
   company: string;
   position: string;
   duration: string;
-  description?: string;
+  highlights?: string[];
   badge?: string;
 }
 
 export interface Experience {
-  icon: string;
   title: string;
   description: string;
   items: ExperienceItem[];
@@ -53,7 +60,6 @@ export interface EducationItem {
 }
 
 export interface Education {
-  icon: string;
   title: string;
   description: string;
   items: EducationItem[];
@@ -73,118 +79,116 @@ export interface Skills {
 export const about: About = {
   title: 'About me',
   description:
-    'I am a Senior Front-End Engineer specializing in building scalable, high-performance web applications using the React and Angular ecosystems. With a background in English Literature, I bridge the gap between technical complexity and clear communication. I excel in optimizing performance, architecting complex UIs, and mentoring junior developers in agile environments.',
+    'I am a Senior Front-End Engineer with 4+ years of experience building real-time fintech and SaaS products. I work across the full front-end lifecycle—from architecture, state design, and reusable component systems to accessibility, testing, performance, and production delivery. My English Literature background also makes clear documentation and cross-functional communication a natural part of how I work.',
   info: [
     {
       fieldName: 'Name',
-      fieldValue: 'Masood Moosavi',
+      fieldValue: 'Masoud Mousavi',
     },
     {
-      fieldName: 'Phone',
-      fieldValue: '(+98) 916 823 8775',
+      fieldName: 'Role',
+      fieldValue: 'Senior Front-End Engineer',
     },
     {
       fieldName: 'Experience',
       fieldValue: '4+ Years',
     },
     {
-      fieldName: 'Skype',
-      fieldValue: 'masood.dev',
+      fieldName: 'Location',
+      fieldValue: 'Tehran, Iran · Remote-ready',
     },
     {
-      fieldName: 'Nationality',
-      fieldValue: 'Iranian',
+      fieldName: 'Focus',
+      fieldValue: 'Fintech, SaaS & real-time systems',
     },
     {
       fieldName: 'Email',
-      fieldValue: 'masood.m.dev@gmail.com',
+      fieldValue: 'masoud.mousavi.dev@gmail.com',
     },
     {
-      fieldName: 'Freelance',
-      fieldValue: 'Available',
+      fieldName: 'Availability',
+      fieldValue: 'Open to senior front-end roles',
     },
     {
       fieldName: 'Languages',
-      fieldValue: 'Persian, English (Advanced)',
+      fieldValue: 'Persian (Native), English (Fluent)',
     },
   ],
 };
 
 export const experience: Experience = {
-  icon: '/assets/resume/badge.svg',
-  title: 'My Experience',
+  title: 'Experience',
   description:
-    'A progressive track record of delivering enterprise-level applications, focusing on performance optimization, maintainable codebases, and seamless UI/UX implementation.',
+    'A track record of owning complex front-end work across fintech, HR SaaS, and agency products—with measurable improvements to speed, reliability, and team delivery.',
   items: [
     {
-      company: 'RBTex',
+      company: 'RBTex (Arbitex)',
       position: 'Senior Front-End Developer',
       duration: 'Dec 2024 – Present',
-      description:
-        'Architected high-traffic crypto exchange dashboards using React, Next.js (SSR), and TypeScript. Reduced initial load times by ~30% and established comprehensive technical documentation.',
+      highlights: [
+        'Own technical design through production for React 19, Next.js, and TypeScript crypto-payment and exchange workflows.',
+        'Improved initial load by ~30% through route-level splitting, lazy loading, tree shaking, and performance budgets.',
+        'Set shared standards for state, components, testing, CI, documentation, code review, and mentoring.',
+      ],
     },
     {
-      company: 'Pendar Ideas',
-      position: 'Senior Front-End Developer',
+      company: 'Pendar Ideas (DivanHR)',
+      position: 'Front-End Developer',
       duration: 'May 2024 – Dec 2024',
-      description:
-        'Spearheaded refactoring of legacy code into a modern component-based architecture and shipped the "Good Vibes" feature, contributing to a ~10% increase in Daily Active Users.',
+      highlights: [
+        'Proved and delivered a phased AngularJS/jQuery-to-React migration covering ~30 screens and 70–80% of the portal in five months.',
+        'Built a versioned ui-core library of reusable components and hooks with documentation for consistent delivery.',
+        'Shipped the Good Vibes recognition feed, leaderboards, and real-time notifications, contributing to ~5–8% DAU growth.',
+      ],
     },
     {
       company: 'Bitbine',
       position: 'Front-End Developer',
-      duration: 'May 2023 – Aug 2024',
-      description:
-        'Integrated complex RESTful APIs with robust error handling and established an automated testing culture (Cypress), reducing production bugs by ~30%.',
+      duration: 'May 2023 – Apr 2024',
+      highlights: [
+        'Built REST and WebSocket data flows with TanStack Query, throttling, snapshot/delta merging, and reconnect backoff.',
+        'Kept order-book and candlestick updates responsive for 2,000–3,000 concurrent users, cutting critical transforms from ~50ms to <5ms.',
+        'Added Jest, React Testing Library, and Cypress coverage in CI, helping reduce emergency rollbacks by ~50%.',
+      ],
     },
     {
-      company: 'Immorit',
-      position: 'Junior Front-End Developer',
+      company: 'IMORIT',
+      position: 'Front-End Developer',
       duration: 'Apr 2022 – Mar 2023',
-      description:
-        'Translated UI/UX designs into responsive, accessible code and collaborated with the design team to standardize the UI component system across multiple projects.',
-    },
-    {
-      company: 'Karademy',
-      position: 'MERN Stack Intern',
-      duration: '2021',
-      description:
-        'Completed an intensive MERN stack internship, building full-stack applications with MongoDB, Express, React, and Node.js.',
+      highlights: [
+        'Delivered 20–25 React screens across 5–6 projects from Figma, including robust RTL and mixed-direction layouts.',
+        'Built a branded, animated meeting-booking calendar and reusable Sass component patterns.',
+        'Created a shared component library adopted by three of the next four projects, reducing setup from 4–5 hours to about one hour.',
+      ],
     },
   ],
 };
 
 export const education: Education = {
-  icon: '/assets/resume/cap.svg',
-  title: 'My Education',
+  title: 'Education',
   description:
     'Combining technical expertise with strong analytical and communication skills derived from a diverse academic background.',
   items: [
     {
-      institution: 'Karademy Bootcamp',
-      degree: 'Certified MERN Stack Developer',
-      duration: '2021',
-    },
-    {
       institution: 'Shahid Bahonar University',
-      degree: 'BA in English Literature',
-      duration: '2017 - 2021',
+      degree: 'Bachelor of English Literature',
+      duration: '2017 – 2020',
     },
   ],
 };
 
 export const skills: Skills = {
-  title: 'My Skills',
+  title: 'Skills',
   description:
-    'Mastering the modern web stack with a focus on React ecosystem, Performance, and Type-Safety.',
+    'A production-tested toolkit centered on typed React architecture, real-time data, performance, and reliable delivery.',
   skillList: [
     {
       icon: <FaReact />,
-      name: 'React.js',
+      name: 'React 19',
     },
     {
       icon: <SiNextdotjs />,
-      name: 'Next.js',
+      name: 'Next.js · SSR/SSG',
     },
     {
       icon: <SiTypescript />,
@@ -203,28 +207,36 @@ export const skills: Skills = {
       name: 'Sass/SCSS',
     },
     {
-      icon: <SiFramer />,
-      name: 'Framer Motion',
+      icon: <FaCode />,
+      name: 'Panda CSS',
     },
     {
       icon: <SiRedux />,
       name: 'Redux Toolkit',
     },
     {
-      icon: <SiReactquery />,
-      name: 'React Query',
+      icon: <FaCode />,
+      name: 'Zustand',
     },
     {
-      icon: <SiReacthookform />,
-      name: 'React Hook Form',
+      icon: <SiReactquery />,
+      name: 'TanStack Query',
     },
     {
       icon: <FaAngular />,
-      name: 'Angular',
+      name: 'AngularJS',
     },
     {
-      icon: <SiNgrx />,
-      name: 'NgRx',
+      icon: <SiSocketdotio />,
+      name: 'WebSockets',
+    },
+    {
+      icon: <SiGraphql />,
+      name: 'GraphQL',
+    },
+    {
+      icon: <SiApollographql />,
+      name: 'Apollo Client',
     },
     {
       icon: <SiCypress />,
@@ -235,8 +247,16 @@ export const skills: Skills = {
       name: 'Jest',
     },
     {
+      icon: <SiTestinglibrary />,
+      name: 'Testing Library',
+    },
+    {
       icon: <SiStorybook />,
       name: 'Storybook',
+    },
+    {
+      icon: <SiVite />,
+      name: 'Vite',
     },
     {
       icon: <SiWebpack />,
@@ -247,24 +267,20 @@ export const skills: Skills = {
       name: 'Git & CI/CD',
     },
     {
-      icon: <FaNodeJs />,
-      name: 'Node.js',
+      icon: <FaDocker />,
+      name: 'Docker',
     },
     {
-      icon: <SiExpress />,
-      name: 'Express.js',
+      icon: <SiSentry />,
+      name: 'Sentry',
     },
     {
-      icon: <SiMongodb />,
-      name: 'MongoDB',
+      icon: <FaUniversalAccess />,
+      name: 'Accessibility & RTL',
     },
     {
-      icon: <SiThreedotjs />,
-      name: 'Three.js',
-    },
-    {
-      icon: <FaFigma />,
-      name: 'Figma',
+      icon: <FaBolt />,
+      name: 'Core Web Vitals',
     },
   ],
 };

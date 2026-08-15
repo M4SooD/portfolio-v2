@@ -2,65 +2,162 @@ export interface StackItem {
   name: string;
 }
 
+export type ProjectKind = 'professional' | 'independent';
+
 export interface Project {
   num: string;
   category: string;
   title: string;
   description: string;
   stack: StackItem[];
-  image: string;
-  live: string;
-  github: string;
+  kind: ProjectKind;
+  image?: string;
+  imageFit?: 'cover' | 'contain';
+  live?: string;
+  liveLabel?: string;
+  github?: string;
+  role?: string;
+  period?: string;
+  highlights?: string[];
 }
 
 export const projects: Project[] = [
   {
     num: '01',
-    category: 'frontend',
-    title: 'Nexter',
+    category: 'Crypto exchange & payments',
+    title: 'RBTex',
     description:
-      'Nexter is a responsive website for showcasing luxury homes, featuring a sleek design, dynamic grid layout, and smooth animations. Built using HTML, CSS, Sass, and JavaScript.',
-    stack: [{ name: 'Html 5' }, { name: 'Css 3' }, { name: 'Sass' }],
-    image: '/assets/work/thumb1.png',
-    live: 'https://nextteer.netlify.app/',
-    github: 'https://github.com/M4SooD/Nexter',
+      'I own front-end delivery across cryptocurrency exchange, wallet, and payment workflows—from technical design and state architecture to testing, accessibility, and production performance.',
+    stack: [{ name: 'Next.js' }, { name: 'React' }, { name: 'TypeScript' }],
+    kind: 'professional',
+    image: '/assets/work/rbtex.jpg',
+    live: 'https://rbtex.com/',
+    liveLabel: 'Visit company website',
+    role: 'Senior Front-End Developer',
+    period: 'Dec 2024 – Present',
+    highlights: [
+      '~30% faster initial load through code splitting, lazy loading, and tree shaking',
+      'Performance budgets and Core Web Vitals built into delivery standards',
+      'Shared state, component, testing, CI, and documentation conventions',
+    ],
   },
   {
     num: '02',
-    category: 'frontend',
-    title: 'Natours',
+    category: 'HR SaaS platform',
+    title: 'Pendar Ideas · DivanHR',
     description:
-      'Natours is a website for booking adventure tours, designed with a clean, responsive layout and immersive visuals. Features parallax effects and smooth UX.',
-    stack: [{ name: 'Html 5' }, { name: 'Css 3' }, { name: 'Javascript' }],
-    image: '/assets/work/thumb2.png',
-    live: 'https://natrourss.netlify.app/',
-    github: 'https://github.com/M4SooD',
+      'I helped modernize DivanHR’s legacy HR portal with a phased React migration, then built a reusable UI foundation so new product work could ship consistently alongside the existing application.',
+    stack: [{ name: 'React' }, { name: 'AngularJS' }, { name: 'Feature flags' }],
+    kind: 'professional',
+    image: '/assets/work/divanhr.jpg',
+    live: 'https://divanhr.com/',
+    liveLabel: 'Visit DivanHR',
+    role: 'Front-End Developer',
+    period: 'May – Dec 2024',
+    highlights: [
+      '~30 screens and 70–80% of the portal migrated in five months',
+      'Versioned ui-core component and hooks library with documentation',
+      'Good Vibes social feature contributed to ~5–8% DAU growth',
+    ],
   },
   {
     num: '03',
-    category: 'fullstack',
-    title: 'Omnifood',
+    category: 'Spot & futures exchange',
+    title: 'Bitbine',
     description:
-      'AI-powered food delivery service. Showcases modern UI elements, smooth scrolling, and advanced CSS animations for a seamless user experience.',
-    stack: [{ name: 'Next.js' }, { name: 'Tailwind' }, { name: 'Node.js' }],
-    image: '/assets/work/thumb3.png',
-    live: 'https://omniifoods.netlify.app/',
-    github: 'https://github.com/M4SooD/Omnifood',
+      'I built resilient REST and real-time market-data flows for Bitbine’s spot and futures trading interfaces, with performance-sensitive transforms and production-focused test coverage.',
+    stack: [{ name: 'React' }, { name: 'TanStack Query' }, { name: 'WebSockets' }],
+    kind: 'professional',
+    image: '/assets/work/bitbine.jpg',
+    live: 'https://www.bitbine.com/user/main',
+    liveLabel: 'Visit Bitbine',
+    role: 'Front-End Developer',
+    period: 'May 2023 – Apr 2024',
+    highlights: [
+      'Responsive order-book and candlestick updates for 2,000–3,000 concurrent users',
+      'Critical widget transforms reduced from ~50ms to <5ms',
+      'Jest, Testing Library, and Cypress in CI helped cut emergency rollbacks ~50%',
+    ],
   },
   {
     num: '04',
-    title: 'Uniswap Interface Clone',
+    category: 'Web & app agency work',
+    title: 'IMORIT',
     description:
-      'A fully functional Web3 swap interface with wallet connection, live price feeds, and transaction handling, built with React, TypeScript, ethers.js, and Next.js.',
-    stack: [
-      { name: 'Next.js 16' },
-      { name: 'TypeScript' },
-      { name: 'ethers.js' },
-      { name: 'Tailwind CSS' },
+      'I translated Figma designs into responsive React web and app products for agency clients, with particular attention to reusable Sass patterns and reliable RTL and mixed-direction layouts.',
+    stack: [{ name: 'React' }, { name: 'Sass' }, { name: 'RTL/LTR' }],
+    kind: 'professional',
+    image: '/assets/work/imorit.jpg',
+    live: 'https://imorit.com/',
+    liveLabel: 'Visit company website',
+    role: 'Front-End Developer',
+    period: 'Apr 2022 – Mar 2023',
+    highlights: [
+      '20–25 production screens delivered across 5–6 projects',
+      'Reusable component library adopted by three of the next four projects',
+      'New-project UI setup reduced from 4–5 hours to about one hour',
     ],
-    image: '/assets/work/uniswap.png', // We'll add a placeholder image later, for now it can be missing or a generic dev image
-    github: 'https://github.com/M4SooD/uniswap-interface',
-    category: 'frontend',
-    live: '',
+  },
+  {
+    num: '05',
+    category: 'Real-time data demo',
+    title: 'Live Market Telemetry',
+    description:
+      'A focused React 19 dashboard consuming live Binance ticker streams. Zustand selector subscriptions isolate coin-widget updates while Panda CSS keeps the interface type-safe and responsive.',
+    stack: [
+      { name: 'React 19' },
+      { name: 'TypeScript' },
+      { name: 'Zustand' },
+      { name: 'WebSockets' },
+      { name: 'Panda CSS' },
+    ],
+    kind: 'independent',
+    image: '/assets/work/telemetry-dashboard.png',
+    imageFit: 'contain',
+    github: 'https://github.com/M4SooD/telemetry-dashboard',
+    highlights: [
+      'Live BTC, ETH, SOL, BNB, and XRP ticker streams',
+      'Per-symbol Zustand selectors limit unrelated component updates',
+      'Small, readable public codebase that demonstrates real-time React fundamentals',
+    ],
+  },
+  {
+    num: '06',
+    category: 'Frontend demo',
+    title: 'Nexter',
+    description:
+      'A responsive luxury-property showcase with a dynamic grid layout, polished visual hierarchy, and carefully crafted interactions.',
+    stack: [{ name: 'HTML 5' }, { name: 'CSS 3' }, { name: 'Sass' }],
+    kind: 'independent',
+    image: '/assets/work/nexter.jpg',
+    live: 'https://nextteer.netlify.app/',
+    liveLabel: 'View live demo',
+    github: 'https://github.com/M4SooD/Nexter',
+  },
+  {
+    num: '07',
+    category: 'Frontend demo',
+    title: 'Natours',
+    description:
+      'An adventure-tour experience with a responsive layout, immersive visuals, parallax effects, and fluid interaction details.',
+    stack: [{ name: 'HTML 5' }, { name: 'CSS 3' }, { name: 'JavaScript' }],
+    kind: 'independent',
+    image: '/assets/work/natours.jpg',
+    live: 'https://natrourss.netlify.app/',
+    liveLabel: 'View live demo',
+    github: 'https://github.com/M4SooD',
+  },
+  {
+    num: '08',
+    category: 'Frontend demo',
+    title: 'Omnifood',
+    description:
+      'A modern food-delivery landing experience showcasing responsive composition, smooth scrolling, and advanced CSS animation.',
+    stack: [{ name: 'HTML 5' }, { name: 'CSS 3' }, { name: 'JavaScript' }],
+    kind: 'independent',
+    image: '/assets/work/omnifood.jpg',
+    live: 'https://omniifoods.netlify.app/',
+    liveLabel: 'View live demo',
+    github: 'https://github.com/M4SooD/Omnifood',
   },
 ];

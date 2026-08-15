@@ -1,59 +1,46 @@
-'use client';
-
-import { motion } from 'framer-motion';
+import type { Metadata } from 'next';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-
 import Experience from '@/components/resume/Experience';
 import Education from '@/components/resume/Education';
 import Skills from '@/components/resume/Skills';
 import About from '@/components/resume/About';
 
-const Resume = () => {
+export const metadata: Metadata = {
+  title: 'Experience',
+  description:
+    'Professional experience, technical skills, education, and background of Senior Front-End Engineer Masoud Mousavi.',
+  alternates: { canonical: '/resume' },
+};
+
+export default function ResumePage() {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{
-        opacity: 1,
-        transition: { delay: 2.2, duration: 0.4, ease: 'easeIn' },
-      }}
-      className="min-h-[80vh] flex items-center justify-center py-12 xl:py-0"
-    >
-      <div className="container mx-auto">
-        <Tabs
-          defaultValue="experience"
-          className="flex flex-col xl:flex-row gap-15"
-        >
-          <TabsList className="flex flex-col w-full max-w-95 mx-auto xl:mx-0 gap-6">
-            <TabsTrigger value="experience">Experience</TabsTrigger>
-            <TabsTrigger value="education">Education</TabsTrigger>
-            <TabsTrigger value="skills">Skills</TabsTrigger>
-            <TabsTrigger value="about">About me</TabsTrigger>
+    <section className="section-shell">
+      <div className="container">
+        <div className="max-w-3xl">
+          <p className="eyebrow">Experience</p>
+          <h1 className="page-title mt-4">Building better products—and stronger front-end teams.</h1>
+          <p className="mt-6 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg">
+            A practical track record across crypto, social products, and agency work,
+            with an emphasis on performance, maintainability, and clear collaboration.
+          </p>
+        </div>
+
+        <Tabs defaultValue="experience" className="mt-12 grid gap-8 lg:grid-cols-[240px_1fr] lg:items-start">
+          <TabsList className="surface grid w-full grid-cols-2 gap-2 rounded-2xl p-2 lg:sticky lg:top-28 lg:flex lg:flex-col">
+            <TabsTrigger className="min-w-0" value="experience">Experience</TabsTrigger>
+            <TabsTrigger className="min-w-0" value="skills">Skills</TabsTrigger>
+            <TabsTrigger className="min-w-0" value="about">About</TabsTrigger>
+            <TabsTrigger className="min-w-0" value="education">Education</TabsTrigger>
           </TabsList>
 
-          <div className="min-h-[70vh] w-full">
-            <TabsContent value="experience" className="w-full">
-              <Experience />
-            </TabsContent>
-
-            <TabsContent value="education" className="w-full">
-              <Education />
-            </TabsContent>
-
-            <TabsContent value="skills" className="w-full">
-              <Skills />
-            </TabsContent>
-
-            <TabsContent
-              value="about"
-              className="w-full text-center xl:text-left"
-            >
-              <About />
-            </TabsContent>
+          <div className="min-w-0">
+            <TabsContent value="experience"><Experience /></TabsContent>
+            <TabsContent value="skills"><Skills /></TabsContent>
+            <TabsContent value="about"><About /></TabsContent>
+            <TabsContent value="education"><Education /></TabsContent>
           </div>
         </Tabs>
       </div>
-    </motion.div>
+    </section>
   );
-};
-
-export default Resume;
+}

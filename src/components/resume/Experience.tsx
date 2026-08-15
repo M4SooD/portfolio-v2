@@ -1,34 +1,44 @@
+import { BriefcaseBusiness } from 'lucide-react';
 import { experience } from '@/constants/resume';
-import { ScrollArea } from '@/components/ui/scroll-area';
 
 const Experience = () => {
   return (
-    <div className="flex flex-col gap-7.5 text-center xl:text-left">
-      <h3 className="text-4xl font-bold">{experience.title}</h3>
-      <p className="max-w-150 text-white/60 mx-auto xl:mx-0">
-        {experience.description}
-      </p>
-      <ScrollArea className="h-100">
-        <ul className="grid grid-cols-1 lg:grid-cols-2 gap-7.5">
-          {experience.items.map((item, index) => {
-            return (
-              <li
-                key={index}
-                className="bg-[#232329] h-46 py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1"
-              >
-                <span className="text-accent">{item.duration}</span>
-                <h3 className="text-xl max-w-65 min-h-15 text-center lg:text-left">
-                  {item.position}
-                </h3>
-                <div className="flex items-center gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
-                  <p className="text-white/60">{item.company}</p>
-                </div>
-              </li>
-            );
-          })}
-        </ul>
-      </ScrollArea>
+    <div>
+      <div className="flex items-center gap-3">
+        <span className="grid size-11 place-items-center rounded-xl bg-primary/10 text-primary">
+          <BriefcaseBusiness aria-hidden="true" className="size-5" />
+        </span>
+        <div>
+          <h2 className="text-2xl font-semibold tracking-tight">{experience.title}</h2>
+          <p className="text-sm text-muted-foreground">Professional timeline</p>
+        </div>
+      </div>
+
+      <ol className="mt-8 space-y-4">
+        {experience.items.map((item) => (
+          <li key={`${item.company}-${item.position}`} className="surface relative rounded-2xl p-6 sm:p-7">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+              <div>
+                <h3 className="text-lg font-semibold">{item.position}</h3>
+                <p className="mt-1 text-sm font-medium text-primary">{item.company}</p>
+              </div>
+              <time className="w-fit rounded-full border border-white/8 bg-white/4 px-3 py-1.5 text-xs text-muted-foreground">
+                {item.duration}
+              </time>
+            </div>
+            {item.highlights ? (
+              <ul className="mt-5 space-y-2.5 text-sm leading-7 text-muted-foreground">
+                {item.highlights.map((highlight) => (
+                  <li key={highlight} className="flex gap-3">
+                    <span aria-hidden="true" className="mt-3 size-1.5 shrink-0 rounded-full bg-primary" />
+                    <span>{highlight}</span>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+          </li>
+        ))}
+      </ol>
     </div>
   );
 };

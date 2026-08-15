@@ -21,62 +21,65 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-
-  --font-primary: var(--font-jetbrainsMono);
-  --radius: 0.5rem;
-
-  --animate-accordion-down: accordion-down 0.2s ease-out;
-  --animate-accordion-up: accordion-up 0.2s ease-out;
-
-  @keyframes accordion-down {
-    from {
-      height: 0;
-    }
-    to {
-      height: var(--radix-accordion-content-height);
-    }
-  }
-  @keyframes accordion-up {
-    from {
-      height: var(--radix-accordion-content-height);
-    }
-    to {
-      height: 0;
-    }
-  }
+  --font-primary: "Segoe UI", Inter, ui-sans-serif, system-ui, sans-serif;
+  --radius: 0.75rem;
 }
 
 :root {
-  --background: #1c1c22;
-  --foreground: #ffffff;
-  --card: #27272c;
-  --card-foreground: #ffffff;
-  --popover: #1c1c22;
-  --popover-foreground: #ffffff;
-  --primary: #00ff99;
-  --primary-foreground: #1c1c22;
-  --secondary: #27272c;
-  --secondary-foreground: #ffffff;
-  --muted: #27272c;
-  --muted-foreground: #9ca3af;
-  --accent: #00e187;
-  --accent-foreground: #1c1c22;
-  --destructive: #cf6679;
+  --background: #090b10;
+  --foreground: #f4f7fb;
+  --card: #11151d;
+  --card-foreground: #f4f7fb;
+  --popover: #11151d;
+  --popover-foreground: #f4f7fb;
+  --primary: #52f2ad;
+  --primary-foreground: #06110c;
+  --secondary: #171c26;
+  --secondary-foreground: #f4f7fb;
+  --muted: #171c26;
+  --muted-foreground: #9aa5b5;
+  --accent: #52f2ad;
+  --accent-foreground: #06110c;
+  --destructive: #fb7185;
   --destructive-foreground: #ffffff;
-  --border: #27272c;
-  --input: #27272c;
-  --ring: #00ff99;
-  --radius: 0.5rem;
+  --border: #242b38;
+  --input: #171c26;
+  --ring: #52f2ad;
 }
 
 @layer base {
-  body {
-    @apply bg-background text-foreground font-primary leading-relaxed antialiased;
+  * {
+    @apply border-border;
   }
 
-  /* --- Premium Custom Scrollbar --- */
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-primary leading-relaxed antialiased;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(circle at 15% -10%, rgb(82 242 173 / 0.12), transparent 30rem),
+      radial-gradient(circle at 85% 5%, rgb(66 153 225 / 0.1), transparent 26rem),
+      linear-gradient(rgb(255 255 255 / 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(255 255 255 / 0.025) 1px, transparent 1px);
+    background-size: auto, auto, 48px 48px, 48px 48px;
+  }
+
+  ::selection {
+    background: rgb(82 242 173 / 0.28);
+    color: var(--foreground);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 4px;
+  }
+
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 9px;
   }
 
   ::-webkit-scrollbar-track {
@@ -84,44 +87,47 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: var(--primary);
-    border-radius: 10px;
+    background: #2e3747;
+    border: 2px solid var(--background);
+    border-radius: 999px;
   }
 
-  ::-webkit-scrollbar-thumb:hover {
-    background: var(--accent);
-  }
-
-  /* Firefox Fallback */
   * {
     scrollbar-width: thin;
-    scrollbar-color: var(--primary) var(--background);
+    scrollbar-color: #2e3747 var(--background);
   }
-}
-
-/* Tailwind v4 explicitly registers utilities this way */
-@utility h1 {
-  @apply text-[48px] xl:text-[80px] leading-[1.1] font-semibold;
-}
-
-@utility h2 {
-  @apply text-[36px] xl:text-[48px] leading-[1.1] font-semibold;
-}
-
-@utility h3 {
-  @apply text-[20px] xl:text-[24px] leading-[1.1] font-semibold;
-}
-
-@utility text-outline {
-  -webkit-text-stroke: 1px white;
-  color: transparent;
-}
-
-@utility text-outline-hover {
-  -webkit-text-stroke: 1px var(--color-accent);
-  color: transparent;
 }
 
 @utility container {
-  @apply w-full mx-auto px-4 md:px-8 xl:px-0 max-w-300;
+  @apply mx-auto w-full max-w-300 px-5 sm:px-8 xl:px-0;
+}
+
+@utility section-shell {
+  @apply py-18 md:py-24;
+}
+
+@utility surface {
+  @apply border border-white/8 bg-white/[0.035] shadow-[0_24px_80px_rgba(0,0,0,0.22)];
+}
+
+@utility eyebrow {
+  @apply text-xs font-semibold uppercase tracking-[0.22em] text-primary;
+}
+
+@utility page-title {
+  @apply text-4xl font-semibold tracking-[-0.05em] text-balance sm:text-5xl lg:text-6xl;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

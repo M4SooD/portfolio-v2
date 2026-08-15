@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { ArrowRight, CheckCircle2, LoaderCircle } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -9,161 +10,244 @@ import {
   SelectContent,
   SelectGroup,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from '@/components/ui/dialog';
+
+const initialForm = {
+  firstname: '',
+  lastname: '',
+  email: '',
+  phone: '',
+  service: '',
+  message: '',
+  website: '',
+};
+
+type SubmitState = 'idle' | 'submitting' | 'success' | 'error';
 
 const ContactForm = () => {
-  const [formData, setFormData] = useState({
-    firstname: '',
-    lastname: '',
-    email: '',
-    phone: '',
-    service: '',
-    message: '',
-  });
-  const [isLoading, setIsLoading] = useState(false);
-  const [open, setOpen] = useState(false);
+  const [formData, setFormData] = useState(initialForm);
+  const [submitState, setSubmitState] = useState<SubmitState>('idle');
+  const [feedback, setFeedback] = useState('');
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    setFormData((current) => ({
+      ...current,
+      [event.target.name]: event.target.value,
+    }));
   };
 
-  const handleSelectChange = (value: string) => {
-    setFormData((prev) => ({ ...prev, service: value }));
-  };
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setSubmitState('submitting');
+    setFeedback('');
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsLoading(true);
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
-      if (response.ok) {
-        setOpen(true);
-        setFormData({
-          firstname: '',
-          lastname: '',
-          email: '',
-          phone: '',
-          service: '',
-          message: '',
-        });
-      } else {
-        alert('Failed to send message.');
+      const result = (await response.json()) as { error?: string };
+
+      if (!response.ok) {
+        throw new Error(result.error ?? 'Your message could not be sent.');
       }
+
+      setFormData(initialForm);
+      setSubmitState('success');
+      setFeedback('Thanks — your message is on its way. I’ll reply as soon as possible.');
     } catch (error) {
-      console.error(error);
-      alert('Error sending message.');
-    } finally {
-      setIsLoading(false);
-      setTimeout(() => setOpen(false), 4000);
+      setSubmitState('error');
+      setFeedback(
+        error instanceof Error ? error.message : 'Something went wrong. Please try again.',
+      );
     }
   };
 
-  return (
-    <>
-      <form
-        className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl"
-        onSubmit={handleSubmit}
-      >
-        <h3 className="text-4xl text-accent">Let&apos;s work together</h3>
-        <p className="text-white/60">
-          I&apos;m excited to collaborate on your next project! Fill out the
-          form below.
-        </p>
+  const fieldClassName =
+    'h-13 rounded-xl border-white/10 bg-white/4 px-4 text-sm placeholder:text-muted-foreground/70 focus-visible:border-primary/50';
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+  return (
+    <form
+      className="surface rounded-3xl p-6 sm:p-8"
+      onSubmit={handleSubmit}
+      aria-labelledby="contact-form-title"
+      aria-describedby={feedback ? 'contact-feedback' : undefined}
+    >
+      <div className="mb-7">
+        <h2 id="contact-form-title" className="text-xl font-semibold tracking-tight">
+          Tell me about the opportunity
+        </h2>
+        <p className="mt-2 text-sm text-muted-foreground">
+          Required fields are marked with{' '}
+          <span aria-hidden="true" className="text-primary">
+            *
+          </span>
+          .
+        </p>
+      </div>
+
+      <div className="grid gap-5 sm:grid-cols-2">
+        <label className="grid gap-2 text-sm font-medium">
+          <span>
+            First name <span aria-hidden="true" className="text-primary">*</span>
+            <span className="sr-only"> (required)</span>
+          </span>
           <Input
             name="firstname"
             value={formData.firstname}
             onChange={handleChange}
-            placeholder="Firstname"
+            autoComplete="given-name"
+            placeholder="Your first name"
             required
-            className="bg-primary border-white/10"
+            maxLength={200}
+            className={fieldClassName}
           />
+        </label>
+        <label className="grid gap-2 text-sm font-medium">
+          Last name
           <Input
             name="lastname"
             value={formData.lastname}
             onChange={handleChange}
-            placeholder="Lastname"
-            required
-            className="bg-primary border-white/10"
+            autoComplete="family-name"
+            placeholder="Your last name"
+            maxLength={200}
+            className={fieldClassName}
           />
+        </label>
+        <label className="grid gap-2 text-sm font-medium">
+          <span>
+            Work email <span aria-hidden="true" className="text-primary">*</span>
+            <span className="sr-only"> (required)</span>
+          </span>
           <Input
             type="email"
             name="email"
             value={formData.email}
             onChange={handleChange}
-            placeholder="Email"
+            autoComplete="email"
+            placeholder="you@company.com"
             required
-            className="bg-primary border-white/10"
+            maxLength={200}
+            className={fieldClassName}
           />
+        </label>
+        <label className="grid gap-2 text-sm font-medium">
+          Phone <span className="sr-only">(optional)</span>
           <Input
             type="tel"
             name="phone"
             value={formData.phone}
             onChange={handleChange}
-            placeholder="Phone"
-            className="bg-primary border-white/10"
+            autoComplete="tel"
+            placeholder="Your phone number"
+            maxLength={200}
+            className={fieldClassName}
           />
-        </div>
+        </label>
+      </div>
 
-        <Select onValueChange={handleSelectChange} value={formData.service}>
-          <SelectTrigger className="w-full bg-primary border-white/10">
-            <SelectValue placeholder="Select a service" />
+      <label className="mt-5 grid gap-2 text-sm font-medium">
+        What can I help with?
+        <Select
+          value={formData.service}
+          onValueChange={(service) => setFormData((current) => ({ ...current, service }))}
+        >
+          <SelectTrigger
+            aria-label="What can I help with?"
+            className={`${fieldClassName} w-full data-[size=default]:h-13`}
+          >
+            <SelectValue placeholder="Choose a focus area" />
           </SelectTrigger>
           <SelectContent>
             <SelectGroup>
-              <SelectLabel>Select a service</SelectLabel>
-              <SelectItem value="web-dev">Web Development</SelectItem>
-              <SelectItem value="ui-ux">UI/UX Design</SelectItem>
+              <SelectItem value="senior-role">Senior front-end opportunity</SelectItem>
+              <SelectItem value="product-development">Product development</SelectItem>
+              <SelectItem value="performance">Performance optimization</SelectItem>
+              <SelectItem value="design-system">Design system</SelectItem>
+              <SelectItem value="other">Something else</SelectItem>
             </SelectGroup>
           </SelectContent>
         </Select>
+      </label>
 
+      <label className="mt-5 grid gap-2 text-sm font-medium">
+        <span>
+          Message <span aria-hidden="true" className="text-primary">*</span>
+          <span className="sr-only"> (required)</span>
+        </span>
         <Textarea
-          className="h-50 bg-primary border-white/10 resize-none"
+          className="min-h-38 resize-y rounded-xl border-white/10 bg-white/4 p-4 text-sm placeholder:text-muted-foreground/70 focus-visible:border-primary/50"
           name="message"
           value={formData.message}
           onChange={handleChange}
-          placeholder="Message"
+          placeholder="Tell me about the role, product, or problem you’re working on."
           required
+          maxLength={5000}
         />
-        <Button
-          size="md"
-          className="max-w-40"
-          type="submit"
-          disabled={isLoading}
-        >
-          {isLoading ? 'Sending...' : 'Send message'}
-        </Button>
-      </form>
+      </label>
 
-      <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="sm:max-w-md bg-dark border-accent/20">
-          <DialogHeader>
-            <DialogTitle className="text-accent">Message Sent!</DialogTitle>
-            <DialogDescription className="text-white/80">
-              Thank you! I will get back to you soon.
-            </DialogDescription>
-          </DialogHeader>
-        </DialogContent>
-      </Dialog>
-    </>
+      <label
+        aria-hidden="true"
+        className="absolute -left-[10000px] top-auto size-px overflow-hidden"
+      >
+        Website
+        <Input
+          name="website"
+          value={formData.website}
+          onChange={handleChange}
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </label>
+
+      <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <p className="max-w-sm text-xs leading-5 text-muted-foreground">
+          Prefer email? Write directly to{' '}
+          <a className="text-foreground underline decoration-primary/50 underline-offset-4" href="mailto:masoud.mousavi.dev@gmail.com">
+            masoud.mousavi.dev@gmail.com
+          </a>
+        </p>
+        <Button
+          size="lg"
+          type="submit"
+          disabled={submitState === 'submitting'}
+          className="h-13 min-w-43 gap-2 rounded-full"
+        >
+          {submitState === 'submitting' ? (
+            <>
+              Sending
+              <LoaderCircle aria-hidden="true" className="size-4 animate-spin" />
+            </>
+          ) : (
+            <>
+              Send message
+              <ArrowRight aria-hidden="true" className="size-4" />
+            </>
+          )}
+        </Button>
+      </div>
+
+      {feedback ? (
+        <p
+          id="contact-feedback"
+          role={submitState === 'error' ? 'alert' : 'status'}
+          className={`mt-5 flex items-start gap-2 rounded-xl border px-4 py-3 text-sm ${
+            submitState === 'success'
+              ? 'border-primary/20 bg-primary/8 text-primary'
+              : 'border-destructive/30 bg-destructive/8 text-destructive'
+          }`}
+        >
+          {submitState === 'success' ? <CheckCircle2 aria-hidden="true" className="mt-0.5 size-4 shrink-0" /> : null}
+          {feedback}
+        </p>
+      ) : null}
+    </form>
   );
 };
 
