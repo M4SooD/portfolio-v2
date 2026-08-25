@@ -85,7 +85,6 @@ export default function RootLayout({
           defaultTheme="dark"
           enableSystem={false}
           storageKey="masoud-portfolio-theme"
-          disableTransitionOnChange
         >
           <a
             href="#main-content"

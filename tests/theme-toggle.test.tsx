@@ -20,7 +20,7 @@ describe('ThemeToggle', () => {
     render(<ThemeToggle />);
 
     const toggle = screen.getByRole('button', {
-      name: 'Switch to light mode',
+      name: 'Toggle color theme',
     });
 
     await user.click(toggle);

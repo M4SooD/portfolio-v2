@@ -7,7 +7,7 @@ module.exports = {
         'http://127.0.0.1:3100/resume',
         'http://127.0.0.1:3100/contact',
       ],
-      numberOfRuns: 2,
+      numberOfRuns: 3,
       startServerCommand:
         'npm run start -- --hostname 127.0.0.1 --port 3100',
       startServerReadyPattern: 'Ready',
