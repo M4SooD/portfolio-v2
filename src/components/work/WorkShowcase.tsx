@@ -24,14 +24,14 @@ const WorkShowcase = () => {
       >
         <div className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
           <span className="text-primary">{project.num}</span>
-          <span className="h-px w-8 bg-white/12" />
+          <span className="h-px w-8 bg-border" />
           {project.category}
         </div>
         <h2 className="mt-5 text-3xl font-semibold tracking-[-0.04em] sm:text-4xl">{project.title}</h2>
         <p className="mt-5 max-w-xl text-sm leading-7 text-muted-foreground">{project.description}</p>
 
         {project.role || project.period ? (
-          <dl className="mt-6 grid gap-3 rounded-2xl border border-white/8 bg-white/3 p-4 sm:grid-cols-2">
+          <dl className="mt-6 grid gap-3 rounded-2xl border border-border/80 bg-card/60 p-4 sm:grid-cols-2">
             {project.role ? (
               <div>
                 <dt className="text-[0.68rem] uppercase tracking-[0.16em] text-muted-foreground">Role</dt>
@@ -83,13 +83,13 @@ const WorkShowcase = () => {
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex h-12 items-center gap-2 rounded-full border border-white/12 bg-white/4 px-5 text-sm font-semibold transition hover:border-primary/35 hover:text-primary"
+              className="inline-flex h-12 items-center gap-2 rounded-full border border-border bg-card/65 px-5 text-sm font-semibold shadow-sm transition hover:border-primary/35 hover:text-primary"
             >
               <Github aria-hidden="true" className="size-4" />
               Source code
             </Link>
           ) : (
-            <span className="inline-flex h-12 items-center gap-2 rounded-full border border-white/10 bg-white/3 px-5 text-sm font-medium text-muted-foreground">
+            <span className="inline-flex h-12 items-center gap-2 rounded-full border border-border/80 bg-card/55 px-5 text-sm font-medium text-muted-foreground">
               <LockKeyhole aria-hidden="true" className="size-4" />
               Private company code
             </span>

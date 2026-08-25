@@ -28,11 +28,11 @@ const WorkSlider = ({ projects, handleSlideChange }: WorkSliderProps) => {
                 <Image
                   src={project.image}
                   fill
-                  preload={project.num === '01'}
-                  quality={80}
+                  fetchPriority={project.num === '01' ? 'high' : undefined}
+                  quality={75}
                   className={project.imageFit === 'contain' ? 'object-contain p-14 sm:p-20' : 'object-cover'}
                   alt={`${project.title} project preview`}
-                  sizes="(min-width: 1280px) 680px, (min-width: 1024px) 56vw, calc(100vw - 40px)"
+                  sizes="(min-width: 1280px) 680px, (min-width: 1024px) 56vw, (max-width: 639px) 50vw, calc(100vw - 40px)"
                 />
               ) : (
                 <div className="absolute inset-0 grid place-items-center p-8 text-center">

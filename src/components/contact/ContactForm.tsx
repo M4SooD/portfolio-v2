@@ -69,7 +69,7 @@ const ContactForm = () => {
   };
 
   const fieldClassName =
-    'h-13 rounded-xl border-white/10 bg-white/4 px-4 text-sm placeholder:text-muted-foreground/70 focus-visible:border-primary/50';
+    'h-13 rounded-xl border-border bg-card/65 px-4 text-sm placeholder:text-muted-foreground/70 focus-visible:border-primary/50';
 
   return (
     <form
@@ -182,7 +182,7 @@ const ContactForm = () => {
           <span className="sr-only"> (required)</span>
         </span>
         <Textarea
-          className="min-h-38 resize-y rounded-xl border-white/10 bg-white/4 p-4 text-sm placeholder:text-muted-foreground/70 focus-visible:border-primary/50"
+          className="min-h-38 resize-y rounded-xl border-border bg-card/65 p-4 text-sm placeholder:text-muted-foreground/70 focus-visible:border-primary/50"
           name="message"
           value={formData.message}
           onChange={handleChange}

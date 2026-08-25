@@ -19,9 +19,9 @@ export default function WorkPage() {
             <h1 className="page-title mt-4">Projects built with intent, not just technology.</h1>
           </div>
           <p className="max-w-2xl text-base leading-8 text-muted-foreground lg:ml-auto lg:text-lg">
-            Production experience from fintech and digital-product teams, followed by
-            independent interface explorations. Each case study focuses on measurable
-            outcomes, maintainable implementation, and thoughtful interaction.
+            Production fintech and product work, plus independent interface
+            explorations. Each case study highlights measurable outcomes,
+            maintainable systems, and thoughtful interaction.
           </p>
         </div>
 

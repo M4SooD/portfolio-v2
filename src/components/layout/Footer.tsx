@@ -3,7 +3,7 @@ import { ArrowUpRight } from 'lucide-react';
 
 export const Footer = () => {
   return (
-    <footer className="border-t border-white/6 py-10">
+    <footer className="border-t border-border/70 py-10">
       <div className="container flex flex-col gap-6 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
         <p>© 2026 Masoud Mousavi. Built with care and TypeScript.</p>
         <div className="flex flex-wrap items-center gap-x-6 gap-y-2">

@@ -27,7 +27,7 @@ const expertise = [
 
 export const Expertise = () => {
   return (
-    <section className="section-shell border-y border-white/6 bg-black/15">
+    <section className="section-shell border-y border-border/70 bg-muted/30">
       <div className="container">
         <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
           <div>
@@ -64,7 +64,7 @@ export const Expertise = () => {
                   aria-label={`${item.title} technologies`}
                 >
                   {item.skills.map((skill) => (
-                    <li key={skill} className="rounded-full border border-white/8 bg-white/4 px-3 py-1.5 text-xs text-muted-foreground">
+                    <li key={skill} className="rounded-full border border-border/80 bg-card/65 px-3 py-1.5 text-xs text-muted-foreground">
                       {skill}
                     </li>
                   ))}

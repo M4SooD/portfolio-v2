@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, ArrowUpRight, LockKeyhole } from 'lucide-react';
+import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { projects } from '@/constants/work';
+import rbtexPreview from '../../../public/assets/work/rbtex.jpg';
 
 export const FeaturedWork = () => {
   const featuredProjects = [projects[0], projects[2], projects[4]];
@@ -18,6 +19,7 @@ export const FeaturedWork = () => {
           </div>
           <Link
             href="/work"
+            prefetch={false}
             className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-primary hover:underline"
           >
             View all projects
@@ -34,7 +36,6 @@ export const FeaturedWork = () => {
               <article key={project.num} className="group surface overflow-hidden rounded-3xl">
                 <Link
                   href={href}
-                  aria-label={`View ${project.title}${isExternal ? ' in a new tab' : ''}`}
                   target={isExternal ? '_blank' : undefined}
                   rel={isExternal ? 'noopener noreferrer' : undefined}
                   className="block"
@@ -42,9 +43,10 @@ export const FeaturedWork = () => {
                   <div className="relative aspect-[16/10] overflow-hidden bg-secondary">
                     {project.image ? (
                       <Image
-                        src={project.image}
+                        src={project.num === '01' ? rbtexPreview : project.image}
                         alt={`${project.title} project preview`}
                         fill
+                        placeholder={project.num === '01' ? 'blur' : 'empty'}
                         sizes="(min-width: 1280px) 385px, (min-width: 1024px) 31vw, calc(100vw - 40px)"
                         className={`${
                           project.imageFit === 'contain'
@@ -53,7 +55,7 @@ export const FeaturedWork = () => {
                         } transition duration-500 group-hover:scale-[1.03]`}
                       />
                     ) : (
-                      <div className="absolute inset-0 grid place-items-center bg-linear-to-br from-primary/12 via-[#111923] to-[#0b0f15] p-6 text-center">
+                      <div className="absolute inset-0 grid place-items-center bg-linear-to-br from-primary/12 via-[#111923] to-[#0b0f15] p-6 text-center text-white">
                         <div>
                           <p className="text-[0.68rem] font-medium uppercase tracking-[0.24em] text-primary">
                             {project.kind === 'professional'
@@ -64,14 +66,14 @@ export const FeaturedWork = () => {
                             {project.title}
                           </p>
                           {project.role ? (
-                            <p className="mt-2 text-xs text-muted-foreground">
+                            <p className="mt-2 text-xs text-white/65">
                               {project.role}
                             </p>
                           ) : null}
                         </div>
                       </div>
                     )}
-                    <div className="absolute right-4 top-4 grid size-10 place-items-center rounded-full border border-white/15 bg-black/50 backdrop-blur-md transition group-hover:bg-primary group-hover:text-primary-foreground">
+                    <div className="absolute right-4 top-4 grid size-10 place-items-center rounded-full border border-white/15 bg-black/50 text-white backdrop-blur-md transition group-hover:bg-primary group-hover:text-primary-foreground">
                       <ArrowUpRight aria-hidden="true" className="size-4" />
                     </div>
                   </div>
@@ -79,6 +81,9 @@ export const FeaturedWork = () => {
                     <div className="flex items-center justify-between gap-4">
                       <h3 className="text-xl font-semibold tracking-tight">
                         {project.title}
+                        {isExternal ? (
+                          <span className="sr-only"> (opens in a new tab)</span>
+                        ) : null}
                       </h3>
                       <span className="text-xs uppercase tracking-widest text-muted-foreground">
                         {project.num}
@@ -94,12 +99,6 @@ export const FeaturedWork = () => {
                         </li>
                       ))}
                     </ul>
-                    {project.kind === 'professional' ? (
-                      <p className="mt-5 flex items-center gap-2 text-xs text-muted-foreground">
-                        <LockKeyhole aria-hidden="true" className="size-3.5" />
-                        Private company code
-                      </p>
-                    ) : null}
                   </div>
                 </Link>
               </article>

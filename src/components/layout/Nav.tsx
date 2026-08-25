@@ -22,6 +22,7 @@ export const Nav = () => {
         return (
           <Link
             href={link.path}
+            prefetch={link.path === '/work' ? false : undefined}
             key={link.path}
             aria-current={isActive ? 'page' : undefined}
             className={`relative py-2 text-sm font-medium transition-colors after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:origin-left after:bg-primary after:transition-transform ${

@@ -16,7 +16,7 @@ const About = () => {
 
       <div className="surface mt-8 rounded-3xl p-6 sm:p-8">
         <p className="max-w-3xl text-base leading-8 text-muted-foreground">{about.description}</p>
-        <dl className="mt-8 grid gap-x-8 gap-y-6 border-t border-white/8 pt-8 sm:grid-cols-2">
+        <dl className="mt-8 grid gap-x-8 gap-y-6 border-t border-border/80 pt-8 sm:grid-cols-2">
           {about.info.map((item) => (
             <div key={item.fieldName} className="grid gap-1">
               <dt className="text-xs uppercase tracking-widest text-muted-foreground">{item.fieldName}</dt>

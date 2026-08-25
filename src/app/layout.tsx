@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { ThemeProvider } from '@/components/theme/ThemeProvider';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://m4sood-dev.vercel.app/'),
@@ -64,8 +65,11 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  colorScheme: 'dark',
-  themeColor: '#090b10',
+  colorScheme: 'light dark',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#f5f8f7' },
+    { media: '(prefers-color-scheme: dark)', color: '#090b10' },
+  ],
 };
 
 export default function RootLayout({
@@ -76,17 +80,24 @@ export default function RootLayout({
   return (
     <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
       <body className="flex min-h-screen flex-col">
-        <a
-          href="#main-content"
-          className="fixed left-4 top-4 z-100 -translate-y-24 rounded-full bg-primary px-5 py-3 font-semibold text-primary-foreground transition-transform focus:translate-y-0"
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem={false}
+          storageKey="masoud-portfolio-theme"
         >
-          Skip to content
-        </a>
-        <Header />
-        <main id="main-content" tabIndex={-1} className="flex-1">
-          {children}
-        </main>
-        <Footer />
+          <a
+            href="#main-content"
+            className="fixed left-4 top-4 z-100 -translate-y-24 rounded-full bg-primary px-5 py-3 font-semibold text-primary-foreground transition-transform focus:translate-y-0"
+          >
+            Skip to content
+          </a>
+          <Header />
+          <main id="main-content" tabIndex={-1} className="flex-1">
+            {children}
+          </main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

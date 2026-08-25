@@ -34,15 +34,15 @@ const Hero = () => {
             </span>
           </h1>
           <p className="mt-7 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg">
-            I&apos;m Masoud Mousavi, a Senior Front-End Engineer with 4+ years
-            building real-time fintech and SaaS products. I own front-end
-            architecture end to end—from state design and component systems to
-            testing, accessibility, and performance.
+            I&apos;m Masoud Mousavi, a Senior Front-End Engineer building real-time
+            fintech and SaaS products—from scalable architecture to accessible,
+            production-ready interfaces.
           </p>
 
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/work"
+              prefetch={false}
               className="inline-flex h-13 items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground transition hover:-translate-y-0.5 hover:shadow-[0_12px_30px_rgba(82,242,173,0.2)]"
             >
               View selected work
@@ -51,21 +51,21 @@ const Hero = () => {
             <a
               href="/assets/Masoud_Mousavi_FrontEnd_Engineer.pdf"
               download="Masoud_Mousavi_FrontEnd_Engineer.pdf"
-              className="inline-flex h-13 items-center justify-center gap-2 rounded-full border border-white/12 bg-white/4 px-6 text-sm font-semibold transition hover:border-primary/40 hover:bg-primary/8 hover:text-primary"
+              className="inline-flex h-13 items-center justify-center gap-2 rounded-full border border-border bg-card/65 px-6 text-sm font-semibold shadow-sm transition hover:border-primary/40 hover:bg-primary/8 hover:text-primary"
             >
               Download résumé
               <Download aria-hidden="true" className="size-4" />
             </a>
           </div>
 
-          <div className="mt-9 flex flex-col gap-6 border-t border-white/8 pt-7 sm:flex-row sm:items-center sm:justify-between">
+          <div className="mt-9 flex flex-col gap-6 border-t border-border/80 pt-7 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <MapPin aria-hidden="true" className="size-4 text-primary" />
               Tehran, Iran · Available remotely
             </div>
             <Socials
               containerStyles="flex items-center gap-2"
-              iconStyles="grid size-10 place-items-center rounded-full border border-white/10 bg-white/4 text-muted-foreground transition hover:-translate-y-0.5 hover:border-primary/35 hover:text-primary"
+              iconStyles="grid size-10 place-items-center rounded-full border border-border bg-card/65 text-muted-foreground shadow-sm transition hover:-translate-y-0.5 hover:border-primary/35 hover:text-primary"
             />
           </div>
         </div>
